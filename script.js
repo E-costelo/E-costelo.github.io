@@ -238,3 +238,45 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+// ===============================
+// SERVICE CARD PAYMENT CONTROL
+// ===============================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const serviceCards = document.querySelectorAll(".service-link");
+
+    serviceCards.forEach(function (card) {
+
+        const serviceTitle = card.querySelector("h3");
+
+        if (!serviceTitle) {
+            return;
+        }
+
+        const serviceName = serviceTitle.textContent.trim();
+        const price = getServicePrice(serviceName);
+
+        card.addEventListener("click", function (event) {
+
+            // NEGOTIABLE / FEE VARIES
+            // → Open the existing WhatsApp link normally
+            if (
+                price === "NEGOTIABLE" ||
+                price === "FEE VARIES"
+            ) {
+                return;
+            }
+
+            // FIXED PRICE
+            // → Stop the normal WhatsApp link
+            // → Open the payment popup instead
+            event.preventDefault();
+
+            openPaymentModal(serviceName);
+
+        });
+
+    });
+
+});
