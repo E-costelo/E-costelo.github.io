@@ -1222,3 +1222,271 @@ footer p {
     }
 
 }
+/* =====================================================
+   REQUEST A SERVICE
+   ===================================================== */
+
+.request-section {
+    background: #f5f5f5;
+}
+
+.request-container {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 0.9fr 1.1fr;
+
+    gap: 35px;
+
+    align-items: stretch;
+}
+
+
+/* LEFT INFORMATION PANEL */
+
+.request-info {
+    padding: 45px 35px;
+
+    border-radius: 15px;
+
+    background: #111;
+
+    color: white;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.request-label {
+    color: #d4af37;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+
+    margin-bottom: 15px;
+}
+
+.request-info h3 {
+    font-size: 32px;
+
+    line-height: 1.25;
+
+    margin-bottom: 18px;
+}
+
+.request-info > p {
+    color: #bdbdbd;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    margin-bottom: 28px;
+}
+
+.request-points {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.request-points div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: #ddd;
+
+    font-size: 14px;
+}
+
+.request-points span {
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #d4af37;
+
+    color: #111;
+
+    font-weight: bold;
+}
+
+
+/* FORM BOX */
+
+.request-form-box {
+    background: white;
+
+    padding: 40px 35px;
+
+    border-radius: 15px;
+
+    border: 1px solid #e5e5e5;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #222;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid #dcdcdc;
+
+    border-radius: 7px;
+
+    background: #fafafa;
+
+    color: #222;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #d4af37;
+
+    background: white;
+
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.10);
+}
+
+.form-group textarea {
+    resize: vertical;
+
+    min-height: 120px;
+}
+
+
+/* SUBMIT BUTTON */
+
+.request-submit {
+    width: 100%;
+
+    padding: 16px 20px;
+
+    border: 2px solid #d4af37;
+
+    border-radius: 7px;
+
+    background: #d4af37;
+
+    color: #111;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.request-submit:hover {
+    background: #e2c35a;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25);
+}
+
+.form-note {
+    margin-top: 12px;
+
+    text-align: center;
+
+    color: #888;
+
+    font-size: 11px;
+}
+
+
+/* REQUEST PANEL — TABLET */
+
+@media (max-width: 850px) {
+
+    .request-container {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .request-info {
+        padding: 40px 30px;
+    }
+
+}
+
+
+/* REQUEST PANEL — MOBILE */
+
+@media (max-width: 700px) {
+
+    .request-container {
+        gap: 15px;
+    }
+
+    .request-info {
+        padding: 35px 25px;
+    }
+
+    .request-info h3 {
+        font-size: 27px;
+    }
+
+    .request-form-box {
+        padding: 30px 20px;
+    }
+
+}
