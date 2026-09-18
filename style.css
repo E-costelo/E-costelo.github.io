@@ -1085,3 +1085,140 @@ footer p {
     }
 
 }
+/* =====================================================
+   WHY CHOOSE US
+   ===================================================== */
+
+.why-us {
+    background: #fafafa;
+}
+
+.why-grid {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 22px;
+}
+
+.why-card {
+    position: relative;
+
+    background: white;
+
+    padding: 35px 25px;
+
+    border-radius: 12px;
+
+    border: 1px solid #e8e8e8;
+
+    text-align: center;
+
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.05);
+
+    transition: 0.3s ease;
+
+    overflow: hidden;
+}
+
+.why-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: #d4af37;
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: 0.3s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #d4af37;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.10);
+}
+
+.why-card:hover::before {
+    transform: scaleX(1);
+}
+
+.why-icon {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #111;
+
+    color: #d4af37;
+
+    font-size: 23px;
+
+    font-weight: bold;
+}
+
+.why-card h3 {
+    color: #111;
+
+    font-size: 18px;
+
+    margin-bottom: 12px;
+}
+
+.why-card p {
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* WHY US — TABLET */
+
+@media (max-width: 950px) {
+
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* WHY US — MOBILE */
+
+@media (max-width: 700px) {
+
+    .why-grid {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .why-card {
+        padding: 30px 22px;
+    }
+
+}
