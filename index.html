@@ -1287,3 +1287,105 @@
 </body>
 
 </html>
+<!-- PAYMENT POPUP -->
+<div id="paymentModal" class="payment-modal">
+
+    <div class="payment-box">
+
+        <button class="payment-close" onclick="closePaymentModal()">
+            &times;
+        </button>
+
+        <div class="payment-icon">📱</div>
+
+        <p class="payment-label">MAKE PAYMENT</p>
+
+        <h2>Complete Your Payment</h2>
+
+        <p class="payment-message">
+            Please make payment for your selected service using
+            M-PESA Pochi la Biashara.
+        </p>
+
+        <!-- SERVICE & PRICE -->
+        <div class="payment-summary">
+
+            <div class="payment-row">
+                <span>Service</span>
+                <strong id="paymentService">—</strong>
+            </div>
+
+            <div class="payment-row">
+                <span>Service Fee</span>
+                <strong id="paymentAmount">—</strong>
+            </div>
+
+        </div>
+
+        <!-- POCHI DETAILS -->
+        <div class="mpesa-box">
+
+            <span>PAY TO POCHI LA BIASHARA</span>
+
+            <strong id="pochiNumber">
+                +254 142 453 589
+            </strong>
+
+            <p>
+                Open M-PESA and make your payment to the number above.
+            </p>
+
+        </div>
+
+        <!-- CUSTOMER DETAILS -->
+        <div class="payment-form">
+
+            <label for="paymentName">
+                Your Full Name
+            </label>
+
+            <input
+                type="text"
+                id="paymentName"
+                placeholder="Enter your full name"
+                autocomplete="name"
+            >
+
+            <label for="paymentWhatsApp">
+                WhatsApp Number
+            </label>
+
+            <input
+                type="tel"
+                id="paymentWhatsApp"
+                placeholder="e.g. 0791234567"
+                autocomplete="tel"
+            >
+
+            <label for="transactionCode">
+                M-PESA Transaction Code
+            </label>
+
+            <input
+                type="text"
+                id="transactionCode"
+                "placeholder="Enter your M-PESA transaction code""
+                autocomplete="off"
+            >
+
+        </div>
+
+        <button
+            class="payment-submit"
+            onclick="submitPayment()"
+        >
+            SUBMIT PAYMENT DETAILS →
+        </button>
+
+        <p class="payment-note">
+            🔒 We will never ask for your M-PESA PIN or OTP.
+        </p>
+
+    </div>
+
+</div>
