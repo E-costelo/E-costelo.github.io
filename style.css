@@ -981,3 +981,107 @@ footer p {
     }
 
 }
+/* =====================================================
+   ADVANCED SERVICE CARD UPGRADE
+   ===================================================== */
+
+.service-link {
+    display: block;
+    color: inherit;
+    cursor: pointer;
+    position: relative;
+}
+
+.service-link::after {
+    content: "↗";
+
+    position: absolute;
+
+    top: 22px;
+    right: 22px;
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f5f5f5;
+
+    color: #b18b1e;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    transition: 0.3s ease;
+}
+
+.service-link:hover::after {
+    background: #d4af37;
+    color: #111;
+
+    transform: rotate(45deg);
+}
+
+.service-link h3 {
+    padding-right: 45px;
+
+    transition: 0.3s ease;
+}
+
+.service-link:hover h3 {
+    color: #b18b1e;
+}
+
+.service-action {
+    display: inline-block;
+
+    margin-top: 18px;
+
+    color: #b18b1e;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.3px;
+
+    transition: 0.3s ease;
+}
+
+.service-link:hover .service-action {
+    color: #111;
+
+    transform: translateX(5px);
+}
+
+
+/* GOLD GLOW ON HOVER */
+
+.service-link:hover {
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(212, 175, 55, 0.35);
+}
+
+
+/* MOBILE SERVICE CARDS */
+
+@media (max-width: 700px) {
+
+    .service-link::after {
+        top: 18px;
+        right: 18px;
+
+        width: 30px;
+        height: 30px;
+    }
+
+    .service-action {
+        margin-top: 15px;
+    }
+
+}
