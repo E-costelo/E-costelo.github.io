@@ -109,3 +109,91 @@ function getServicePrice(serviceName) {
     return servicePrices[serviceName] || "PRICE TO BE CONFIRMED";
 
 }
+// ===============================
+// PAYMENT POPUP
+// ===============================
+
+function openPaymentModal(serviceName) {
+
+    const modal = document.getElementById("paymentModal");
+    const serviceField = document.getElementById("paymentService");
+    const amountField = document.getElementById("paymentAmount");
+
+    if (!modal || !serviceField || !amountField) {
+        return;
+    }
+
+    const price = getServicePrice(serviceName);
+
+    serviceField.textContent = serviceName;
+    amountField.textContent = price;
+
+    modal.classList.add("active");
+
+}
+
+
+function closePaymentModal() {
+
+    const modal = document.getElementById("paymentModal");
+
+    if (modal) {
+        modal.classList.remove("active");
+    }
+
+}
+
+
+function submitPayment() {
+
+    const name = document
+        .getElementById("paymentName")
+        .value
+        .trim();
+
+    const whatsapp = document
+        .getElementById("paymentWhatsApp")
+        .value
+        .trim();
+
+    const transactionCode = document
+        .getElementById("transactionCode")
+        .value
+        .trim();
+
+    const service = document
+        .getElementById("paymentService")
+        .textContent;
+
+    const amount = document
+        .getElementById("paymentAmount")
+        .textContent;
+
+
+    if (!name || !whatsapp || !transactionCode) {
+
+        alert(
+            "Please enter your name, WhatsApp number and M-PESA transaction code."
+        );
+
+        return;
+    }
+
+
+    const message =
+        "🔔 NEW PAYMENT DETAILS%0A%0A" +
+        "Customer: " + encodeURIComponent(name) + "%0A" +
+        "WhatsApp: " + encodeURIComponent(whatsapp) + "%0A" +
+        "Service: " + encodeURIComponent(service) + "%0A" +
+        "Amount: " + encodeURIComponent(amount) + "%0A" +
+        "M-PESA Transaction Code: " +
+        encodeURIComponent(transactionCode);
+
+
+    const whatsappURL =
+        "https://wa.me/254795873094?text=" + message;
+
+
+    window.open(whatsappURL, "_blank");
+
+}
