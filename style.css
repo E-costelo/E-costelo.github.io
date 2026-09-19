@@ -301,71 +301,249 @@ section {
 
 /* =========================================================
    SERVICES
+   PREMIUM HOME-STYLE CARDS
    ========================================================= */
 
 #services {
-    background: #f1f1f1;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08), transparent 38%),
+        #080808;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
 }
+
+#services::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    top: -220px;
+    left: -180px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.06);
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+#services .section-title {
+    position: relative;
+    z-index: 2;
+}
+
+#services .section-title h2 {
+    color: var(--white);
+}
+
+#services .section-title h2 span {
+    color: var(--gold);
+}
+
+#services .section-title p {
+    color: #cfcfcf;
+}
+
+/* SERVICE CARD GRID */
 
 .services-grid {
+    position: relative;
+    z-index: 2;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 25px;
+
+    width: min(1180px, 92%);
+    margin: 0 auto;
 }
+
+/* PREMIUM WHITE CARD */
 
 .service-card {
-    background: var(--white);
-    border: 1px solid #e1e1e1;
-    border-top: 4px solid var(--gold);
-    border-radius: var(--radius);
-    padding: 27px 24px;
-    box-shadow: var(--shadow);
+    position: relative;
+
+    background: linear-gradient(
+        145deg,
+        #ffffff 0%,
+        #fafafa 100%
+    );
+
+    color: var(--text);
+
+    border: 2px solid rgba(212, 175, 55, 0.75);
+    border-radius: 18px;
+
+    padding: 30px 25px 25px;
+
+    min-height: 275px;
+
     display: flex;
     flex-direction: column;
-    min-height: 245px;
-    transition: 0.3s ease;
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.25),
+        0 4px 0 rgba(212, 175, 55, 0.12);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+    overflow: hidden;
 }
+
+/* GOLD TOP LINE */
+
+.service-card::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 12%;
+    right: 12%;
+
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+    );
+
+    border-radius: 0 0 10px 10px;
+}
+
+/* SUBTLE GOLD GLOW */
+
+.service-card::after {
+    content: "";
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    right: -55px;
+    bottom: -55px;
+
+    border-radius: 50%;
+
+    background: rgba(212, 175, 55, 0.09);
+
+    pointer-events: none;
+}
+
+/* HOVER */
 
 .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-hover);
-    border-color: rgba(212, 175, 55, 0.65);
+    transform: translateY(-10px);
+
+    border-color: var(--gold);
+
+    box-shadow:
+        0 22px 45px rgba(0, 0, 0, 0.35),
+        0 5px 0 rgba(212, 175, 55, 0.2);
 }
 
+/* SERVICE TITLE */
+
 .service-card h3 {
-    color: var(--black);
+    position: relative;
+    z-index: 2;
+
+    color: #182638;
+
     font-size: 1.08rem;
+    line-height: 1.35;
+
     margin-bottom: 10px;
 }
 
+/* SERVICE DESCRIPTION */
+
 .service-card p {
-    color: var(--muted);
+    position: relative;
+    z-index: 2;
+
+    color: #596575;
+
     font-size: 0.92rem;
+    line-height: 1.55;
+
     flex: 1;
 }
 
+/* PRICE */
+
 .service-price {
-    color: var(--gold);
-    font-weight: 900;
+    position: relative;
+    z-index: 2;
+
+    color: #c29313;
+
     font-size: 1.05rem;
-    margin: 16px 0;
+    font-weight: 900;
+
+    margin: 17px 0;
 }
 
+/* SERVICE BUTTON */
+
 .service-link {
-    display: inline-flex;
+    position: relative;
+    z-index: 2;
+
+    display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--black);
-    color: var(--white);
-    padding: 11px 15px;
+
+    width: 100%;
+
+    background: #111111;
+    color: #ffffff;
+
+    border: 1px solid #111111;
+
+    padding: 11px 16px;
+
     border-radius: 9px;
-    font-weight: 700;
+
+    font-size: 0.9rem;
+    font-weight: 800;
+
     transition: 0.25s ease;
 }
 
 .service-link:hover {
     background: var(--gold);
-    color: var(--black);
+    border-color: var(--gold);
+    color: #111111;
+
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   SERVICES RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        width: 92%;
+    }
+
+    .service-card {
+        min-height: 250px;
+        padding: 27px 22px 22px;
+    }
 }
 
 /* =========================================================
