@@ -1,9 +1,8 @@
 /* =========================================================
    ELVIS_COSTELO DIGITAL SERVICES
-   BLACK + GOLD WEBSITE STYLES
+   BLACK • GOLD • WHITE
+   HOMEPAGE HERO + CARD DESIGN
    ========================================================= */
-
-/* ---------- RESET ---------- */
 
 * {
     margin: 0;
@@ -18,14 +17,13 @@ html {
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: #111;
-    line-height: 1.6;
     background: #050505;
-    min-height: 100vh;
+    line-height: 1.6;
 }
 
 a {
-    color: inherit;
     text-decoration: none;
+    color: inherit;
 }
 
 button,
@@ -42,11 +40,7 @@ img {
 
 .container {
     width: min(1180px, 92%);
-    margin: 0 auto;
-}
-
-section {
-    scroll-margin-top: 90px;
+    margin: auto;
 }
 
 /* =========================================================
@@ -58,45 +52,47 @@ header {
     top: 0;
     z-index: 1000;
 
-    background: rgba(0, 0, 0, 0.97);
-    border-bottom: 1px solid #c99618;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+    background: #050505;
+    border-bottom: 1px solid #d6a21c;
+
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
 }
 
 .navbar {
     width: min(1180px, 92%);
-    margin: 0 auto;
-
     min-height: 72px;
+
+    margin: auto;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 25px;
 }
 
 .logo {
-    color: #d9a51e;
+    color: #fff;
     font-size: 1.35rem;
-    font-weight: 800;
-    letter-spacing: 0.4px;
+    font-weight: 900;
 }
 
 .logo span {
-    color: #fff;
+    color: #dca51d;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 26px;
     list-style: none;
 }
 
 .nav-links a {
     color: #fff;
-    font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+
     transition: 0.25s ease;
 }
 
@@ -105,28 +101,29 @@ header {
 }
 
 /* =========================================================
-   HOME / HERO
-   JPEG BACKGROUND ONLY HERE
+   HERO / HOME
+   JPEG ONLY HERE
    ========================================================= */
 
 .hero {
-    min-height: 620px;
+    position: relative;
+
+    min-height: 650px;
 
     display: flex;
     align-items: center;
 
-    position: relative;
     overflow: hidden;
 
     background-image:
         linear-gradient(
             90deg,
             rgba(0, 0, 0, 0.90) 0%,
-            rgba(0, 0, 0, 0.68) 35%,
-            rgba(0, 0, 0, 0.18) 75%,
-            rgba(0, 0, 0, 0.10) 100%
+            rgba(0, 0, 0, 0.68) 32%,
+            rgba(255, 255, 255, 0.04) 70%,
+            rgba(255, 255, 255, 0.02) 100%
         ),
-        url("elvis-costelo-background.jpg?v=2");
+        url("elvis-costelo-background.jpg?v=3");
 
     background-size: cover;
     background-position: center center;
@@ -135,9 +132,9 @@ header {
 
 .hero-content {
     width: min(1180px, 92%);
-    margin: 0 auto;
+    margin: auto;
 
-    padding: 90px 0;
+    padding: 85px 0 155px;
 
     position: relative;
     z-index: 2;
@@ -146,129 +143,186 @@ header {
 .hero-label {
     display: inline-block;
 
-    color: #e2ae22;
+    color: #e2ad21;
 
-    border: 1px solid #d09b18;
-    padding: 8px 15px;
+    border: 1px solid #e2ad21;
+
+    padding: 7px 16px;
 
     border-radius: 30px;
 
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 1.2px;
+    font-size: 0.78rem;
+    font-weight: 900;
 
-    margin-bottom: 22px;
+    letter-spacing: 1.5px;
 
-    background: rgba(0, 0, 0, 0.55);
+    margin-bottom: 20px;
+
+    background: rgba(0, 0, 0, 0.45);
 }
 
 .hero h1 {
-    max-width: 700px;
+    max-width: 680px;
 
     color: #fff;
 
-    font-size: clamp(2.4rem, 6vw, 4.8rem);
-    line-height: 1.05;
+    font-size: clamp(2.5rem, 6vw, 4.8rem);
 
-    margin-bottom: 22px;
+    line-height: 1.03;
+
+    margin-bottom: 20px;
 }
 
 .hero h1 span {
-    color: #dba51c;
+    color: #e2ad21;
 }
 
 .hero p {
-    max-width: 650px;
+    max-width: 620px;
 
-    color: #f2f2f2;
+    color: #fff;
 
-    font-size: 1.1rem;
+    font-size: 1.05rem;
 
-    margin-bottom: 32px;
+    margin-bottom: 28px;
 }
 
 .hero-buttons {
     display: flex;
-    flex-wrap: wrap;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 .btn {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
     min-height: 48px;
 
     padding: 12px 22px;
 
-    border-radius: 7px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    font-weight: 700;
+    border-radius: 8px;
+
+    font-weight: 800;
 
     transition: 0.25s ease;
-
-    cursor: pointer;
 }
 
 .btn-primary {
-    background: #d8a31b;
+    background: #f0b51d;
     color: #000;
 }
 
 .btn-primary:hover {
-    background: #f0c342;
+    background: #ffd04a;
     transform: translateY(-2px);
 }
 
 .btn-outline {
-    border: 1px solid #d8a31b;
-
     color: #fff;
+
+    border: 1px solid #e0ad25;
 
     background: rgba(0, 0, 0, 0.45);
 }
 
 .btn-outline:hover {
-    background: #d8a31b;
+    background: #e0ad25;
     color: #000;
 }
 
 /* =========================================================
-   HIGHLIGHTS
+   HOME CATEGORY CARDS
+   These sit visually at bottom of homepage
    ========================================================= */
 
 .highlights {
-    padding: 55px 0;
-    background: rgba(0, 0, 0, 0.96);
+    position: relative;
+    z-index: 5;
+
+    margin-top: -105px;
+
+    padding: 0 0 55px;
+
+    background: transparent;
 }
 
 .highlight-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 15px;
 }
 
 .highlight-card {
-    padding: 28px;
+    min-height: 190px;
 
-    border: 1px solid rgba(216, 163, 27, 0.45);
-    border-radius: 12px;
+    padding: 22px 16px;
 
-    background: #141414;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     text-align: center;
+
+    background: #fff;
+
+    border: 2px solid #dca51d;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.30);
+
+    transition: 0.25s ease;
+}
+
+.highlight-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 18px 35px rgba(0, 0, 0, 0.35);
+}
+
+.highlight-card::before {
+    content: "→";
+
+    width: 46px;
+    height: 46px;
+
+    margin-bottom: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f0b51d;
+
+    color: #000;
+
+    font-size: 1.3rem;
+    font-weight: 900;
 }
 
 .highlight-card h3 {
-    color: #d9a51e;
-    margin-bottom: 8px;
+    color: #17304a;
+
+    font-size: 0.98rem;
+
+    margin-bottom: 7px;
 }
 
 .highlight-card p {
-    color: #ddd;
-    font-size: 0.94rem;
+    color: #536477;
+
+    font-size: 0.82rem;
+
+    line-height: 1.45;
 }
 
 /* =========================================================
@@ -276,20 +330,21 @@ header {
    ========================================================= */
 
 .section-heading {
-    text-align: center;
-
     max-width: 760px;
 
     margin: 0 auto 45px;
+
+    text-align: center;
 }
 
 .section-heading .label {
-    color: #c89415;
+    color: #dca51d;
 
-    font-weight: 800;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
+    font-weight: 900;
 
     letter-spacing: 2px;
+
     text-transform: uppercase;
 
     margin-bottom: 8px;
@@ -297,11 +352,16 @@ header {
 
 .section-heading h2 {
     font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 12px;
+
+    margin-bottom: 10px;
+}
+
+.section-heading h2 span {
+    color: #dca51d;
 }
 
 .section-heading p {
-    color: #555;
+    color: #777;
 }
 
 /* =========================================================
@@ -311,13 +371,13 @@ header {
 .welcome {
     padding: 90px 0;
 
-    background: rgba(255, 255, 255, 0.96);
+    background: #fff;
 }
 
 .welcome-content {
     max-width: 850px;
 
-    margin: 0 auto;
+    margin: auto;
 
     text-align: center;
 }
@@ -329,17 +389,18 @@ header {
 }
 
 .welcome-content h2 span {
-    color: #b8830e;
+    color: #dca51d;
 }
 
 .welcome-content p {
-    color: #444;
+    color: #555;
+
     margin-bottom: 12px;
 }
 
 /* =========================================================
    SERVICES
-   NO JPEG HERE
+   BLACK SECTION
    ========================================================= */
 
 .services {
@@ -353,7 +414,7 @@ header {
 }
 
 .services .section-heading p {
-    color: #ccc;
+    color: #bbb;
 }
 
 .services-grid {
@@ -365,17 +426,18 @@ header {
 }
 
 .service-card {
-    display: flex;
-    flex-direction: column;
-
     min-height: 235px;
 
     padding: 25px;
 
-    border: 1px solid rgba(216, 163, 27, 0.45);
-    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
 
-    background: #181818;
+    background: #171717;
+
+    border: 1px solid rgba(220, 165, 29, 0.45);
+
+    border-radius: 12px;
 
     transition: 0.25s ease;
 }
@@ -383,16 +445,16 @@ header {
 .service-card:hover {
     transform: translateY(-5px);
 
-    border-color: #e0ad25;
+    border-color: #e5b52e;
 
     box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.35);
+        0 15px 35px rgba(0, 0, 0, 0.45);
 }
 
 .service-card h3 {
     color: #fff;
 
-    font-size: 1.12rem;
+    font-size: 1.08rem;
 
     margin-bottom: 10px;
 }
@@ -408,37 +470,32 @@ header {
 .service-price {
     color: #e0ad25;
 
-    font-weight: 800;
+    font-size: 1.12rem;
 
-    font-size: 1.15rem;
+    font-weight: 900;
 
     margin: 18px 0;
 }
 
 .service-link {
-    display: inline-flex;
+    min-height: 43px;
+
+    display: flex;
 
     align-items: center;
     justify-content: center;
 
-    min-height: 43px;
+    border-radius: 7px;
 
-    padding: 10px 16px;
-
-    border-radius: 6px;
-
-    background: #d7a21a;
+    background: #e0ad25;
 
     color: #000;
 
-    font-weight: 800;
-    font-size: 0.9rem;
-
-    transition: 0.25s ease;
+    font-weight: 900;
 }
 
 .service-link:hover {
-    background: #f0c342;
+    background: #ffd04a;
 }
 
 /* =========================================================
@@ -448,7 +505,7 @@ header {
 .how-it-works {
     padding: 90px 0;
 
-    background: rgba(255, 255, 255, 0.96);
+    background: #fff;
 }
 
 .steps-grid {
@@ -460,13 +517,13 @@ header {
 }
 
 .step-card {
-    text-align: center;
-
     padding: 25px 18px;
 
-    border-radius: 12px;
+    text-align: center;
 
     border: 1px solid #ddd;
+
+    border-radius: 12px;
 
     background: #fff;
 }
@@ -478,13 +535,12 @@ header {
     margin: 0 auto 15px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     border-radius: 50%;
 
-    background: #d7a21a;
+    background: #e0ad25;
 
     color: #000;
 
@@ -516,7 +572,7 @@ header {
 }
 
 .why-us .section-heading p {
-    color: #ccc;
+    color: #bbb;
 }
 
 .why-grid {
@@ -530,11 +586,11 @@ header {
 .why-card {
     padding: 28px;
 
-    border: 1px solid rgba(216, 163, 27, 0.4);
+    background: #171717;
+
+    border: 1px solid rgba(220, 165, 29, 0.45);
 
     border-radius: 12px;
-
-    background: #161616;
 }
 
 .why-card .icon {
@@ -554,27 +610,27 @@ header {
 }
 
 /* =========================================================
-   REQUEST FORM
+   REQUEST SERVICE
    ========================================================= */
 
 .request-section {
     padding: 90px 0;
 
-    background: rgba(255, 255, 255, 0.96);
+    background: #fff;
 }
 
 .request-box {
     max-width: 850px;
 
-    margin: 0 auto;
+    margin: auto;
 
     padding: 35px;
-
-    border-radius: 14px;
 
     background: #fff;
 
     border: 1px solid #ddd;
+
+    border-radius: 14px;
 
     box-shadow:
         0 15px 40px rgba(0, 0, 0, 0.12);
@@ -588,7 +644,6 @@ header {
 
 .form-group {
     display: flex;
-
     flex-direction: column;
 
     gap: 7px;
@@ -609,18 +664,18 @@ header {
 
     border-radius: 7px;
 
-    outline: none;
-
     background: #fff;
+
+    outline: none;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: #c99618;
+    border-color: #dca51d;
 
     box-shadow:
-        0 0 0 3px rgba(201, 150, 24, 0.12);
+        0 0 0 3px rgba(220, 165, 29, 0.12);
 }
 
 .form-group textarea {
@@ -630,30 +685,27 @@ header {
 }
 
 .request-submit {
-    border: none;
-
     padding: 14px 20px;
+
+    border: none;
 
     border-radius: 7px;
 
-    background: #d7a21a;
+    background: #e0ad25;
 
     color: #000;
 
-    font-weight: 800;
+    font-weight: 900;
 
     cursor: pointer;
-
-    transition: 0.25s ease;
 }
 
 .request-submit:hover {
-    background: #f0c342;
+    background: #ffd04a;
 }
 
 /* =========================================================
    ABOUT
-   NO JPEG HERE
    ========================================================= */
 
 .about {
@@ -665,7 +717,7 @@ header {
 .about-content {
     max-width: 850px;
 
-    margin: 0 auto;
+    margin: auto;
 
     text-align: center;
 }
@@ -679,7 +731,7 @@ header {
 }
 
 .about-content h2 span {
-    color: #dba51c;
+    color: #dca51d;
 }
 
 .about-content p {
@@ -690,13 +742,12 @@ header {
 
 /* =========================================================
    CONTACT
-   NO JPEG HERE
    ========================================================= */
 
 .contact {
     padding: 90px 0;
 
-    background: rgba(255, 255, 255, 0.96);
+    background: #fff;
 }
 
 .contact-grid {
@@ -771,11 +822,11 @@ header {
 
     padding: 32px;
 
-    border-radius: 16px;
-
     background: #fff;
 
     color: #111;
+
+    border-radius: 16px;
 
     box-shadow:
         0 25px 70px rgba(0, 0, 0, 0.5);
@@ -949,19 +1000,17 @@ header {
 
     border-radius: 7px;
 
-    background: #d7a21a;
+    background: #e0ad25;
 
     color: #000;
 
     font-weight: 900;
 
     cursor: pointer;
-
-    transition: 0.25s ease;
 }
 
 .payment-submit:hover {
-    background: #f0c342;
+    background: #ffd04a;
 }
 
 .payment-note {
@@ -987,11 +1036,11 @@ footer {
 
     text-align: center;
 
-    border-top: 1px solid #c99618;
+    border-top: 1px solid #dca51d;
 }
 
 footer strong {
-    color: #dba51c;
+    color: #dca51d;
 }
 
 .footer-links {
@@ -1007,7 +1056,7 @@ footer strong {
 }
 
 .footer-links a:hover {
-    color: #dba51c;
+    color: #dca51d;
 }
 
 /* =========================================================
@@ -1049,10 +1098,14 @@ footer strong {
 }
 
 /* =========================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE
    ========================================================= */
 
 @media (max-width: 1050px) {
+
+    .highlight-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 
     .services-grid,
     .why-grid {
@@ -1062,7 +1115,6 @@ footer strong {
     .steps-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-
 }
 
 @media (max-width: 800px) {
@@ -1076,18 +1128,21 @@ footer strong {
     }
 
     .nav-links a {
-        font-size: 0.85rem;
+        font-size: 0.84rem;
     }
 
     .hero {
-        min-height: 560px;
+        min-height: 600px;
 
         background-position: center center;
     }
 
-    .highlight-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
+    .hero-content {
+        padding-bottom: 140px;
+    }
+
+    .highlight-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .services-grid,
@@ -1099,15 +1154,12 @@ footer strong {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 600px) {
-
-    .hero {
-        min-height: 540px;
-
-        background-position: center center;
-    }
 
     .navbar {
         flex-direction: column;
@@ -1120,15 +1172,21 @@ footer strong {
     }
 
     .nav-links {
-        gap: 12px;
+        gap: 10px;
 
         flex-wrap: wrap;
 
         justify-content: center;
     }
 
+    .hero {
+        min-height: 620px;
+
+        background-position: center center;
+    }
+
     .hero-content {
-        padding: 70px 0;
+        padding: 65px 0 150px;
     }
 
     .hero h1 {
@@ -1136,17 +1194,27 @@ footer strong {
     }
 
     .hero p {
-        font-size: 1rem;
+        font-size: 0.98rem;
     }
 
     .hero-buttons {
         flex-direction: column;
-
-        align-items: stretch;
     }
 
     .btn {
         width: 100%;
+    }
+
+    .highlights {
+        margin-top: -95px;
+    }
+
+    .highlight-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .highlight-card {
+        min-height: 170px;
     }
 
     .services-grid,
@@ -1174,9 +1242,9 @@ footer strong {
     }
 
     .payment-row {
-        align-items: flex-start;
-
         flex-direction: column;
+
+        align-items: flex-start;
 
         gap: 3px;
     }
@@ -1192,5 +1260,4 @@ footer strong {
         right: 15px;
         bottom: 15px;
     }
-
 }
