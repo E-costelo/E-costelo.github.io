@@ -2,22 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Elvis_costelo Digital Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
-        content="Elvis_costelo Digital Services — Government services, E-Citizen assistance, graphic design, CV writing, websites and digital solutions."
+        content="Elvis_costelo Digital Services — Government services, E-Citizen assistance, graphic design, CV writing, websites, passport, NTSA and digital services."
     >
 
-    <link rel="stylesheet" href="style.css?v=10">
+    <meta name="theme-color" content="#050505">
 
-    <!-- Icons -->
+    <title>Elvis_costelo Digital Services</title>
+
+    <!-- Font Awesome Icons -->
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
+
+    <!-- Main Website CSS -->
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -26,53 +31,49 @@
      HEADER
 ===================================================== -->
 
-<header class="site-header">
+<header>
 
     <nav class="navbar">
 
-        <a href="#home" class="brand">
-
-            <div class="brand-crown">
-                <i class="fa-solid fa-crown"></i>
-            </div>
-
-            <div class="brand-name">
-                <span class="brand-white">Elvis</span><span class="brand-gold">_costelo</span>
-            </div>
-
-            <div class="brand-subtitle">
-                <span></span>
-                DIGITAL SERVICES
-                <span></span>
-            </div>
-
+        <a href="#home" class="logo">
+            Elvis_<span>costelo</span>
         </a>
 
+        <ul class="nav-links">
 
-        <div class="nav-links">
+            <li>
+                <a href="#home" class="active">Home</a>
+            </li>
 
-            <a href="#home" class="active">Home</a>
+            <li>
+                <a href="#services">Services</a>
+            </li>
 
-            <a href="#services">Services <i class="fa-solid fa-chevron-down"></i></a>
+            <li>
+                <a href="#about">About</a>
+            </li>
 
-            <a href="#about">About</a>
+            <li>
+                <a href="#how-it-works">How It Works</a>
+            </li>
 
-            <a href="#how-it-works">How It Works</a>
+            <li>
+                <a href="#why-us">Why Choose Us</a>
+            </li>
 
-            <a href="#why-us">Why Choose Us</a>
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
 
-            <a href="#contact">Contact</a>
-
-        </div>
-
+        </ul>
 
         <a
             href="https://wa.me/254795873094"
             target="_blank"
-            class="nav-whatsapp"
+            rel="noopener noreferrer"
         >
             <i class="fa-brands fa-whatsapp"></i>
-            Chat on WhatsApp
+            &nbsp; Chat on WhatsApp
         </a>
 
     </nav>
@@ -81,190 +82,46 @@
 
 
 <!-- =====================================================
-     HOME / HERO
+     HOME
 ===================================================== -->
 
 <main>
 
-<section id="home" class="hero">
-
-    <div class="hero-overlay"></div>
+<section class="hero" id="home">
 
     <div class="hero-content">
 
-        <div class="hero-left">
-
-            <div class="hero-badge">
-                YOUR TRUSTED DIGITAL PARTNER
-            </div>
-
-            <h1>
-                Fast <span>•</span> Secure <span>•</span> Reliable
-            </h1>
-
-            <h2>
-                Digital Services
-            </h2>
-
-            <p>
-                We help you access government services, create professional
-                designs, write CVs and more — all in one place.
-                Simple, fast and affordable.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a
-                    href="https://wa.me/254795873094"
-                    target="_blank"
-                    class="gold-button"
-                >
-                    <i class="fa-brands fa-whatsapp"></i>
-                    Chat on WhatsApp
-                </a>
-
-                <a href="#services" class="outline-button">
-                    <i class="fa-solid fa-arrow-right"></i>
-                    Explore Services
-                </a>
-
-            </div>
-
+        <div class="hero-label">
+            YOUR TRUSTED DIGITAL PARTNER
         </div>
 
+        <h1>
+            Fast <span>•</span> Secure <span>•</span> Reliable
+            <br>
+            <span>Digital Services</span>
+        </h1>
 
-        <div class="hero-brand">
+        <p>
+            We help you access government services, create professional
+            designs, write CVs and more — all in one place.
+            Simple, fast and affordable.
+        </p>
 
-            <div class="hero-brand-crown">
-                <i class="fa-solid fa-crown"></i>
-            </div>
+        <div class="hero-buttons">
 
-            <div class="hero-brand-name">
-                <span>Elvis</span><strong>_costelo</strong>
-            </div>
-
-            <div class="hero-brand-sub">
-                <span></span>
-                DIGITAL SERVICES
-                <span></span>
-            </div>
-
-            <div class="hero-tagline">
-                IDEAS TODAY
-                <b>•</b>
-                SOLUTIONS TOMORROW
-            </div>
-
-        </div>
-
-
-        <div class="hero-slogan">
-            CREATE<br>
-            BUILD<br>
-            GROW<br>
-            TOGETHER
-
-            <span></span>
-        </div>
-
-    </div>
-
-
-    <!-- =================================================
-         HOME FEATURE CARDS
-    ================================================== -->
-
-    <div class="feature-wrapper">
-
-        <div class="feature-grid">
-
-            <a href="#services" class="feature-card">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-building-columns"></i>
-                </div>
-
-                <h3>Government & E-Citizen</h3>
-
-                <p>
-                    KRA, Good Conduct, CRB, HELB,
-                    EACC, TSC and more.
-                </p>
-
-                <strong class="feature-arrow">→</strong>
-
+            <a
+                href="https://wa.me/254795873094"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+            >
+                <i class="fa-brands fa-whatsapp"></i>
+                &nbsp; Chat on WhatsApp
             </a>
 
-
-            <a href="#services" class="feature-card">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-car"></i>
-                </div>
-
-                <h3>Transport, Passport & Migration</h3>
-
-                <p>
-                    Driving Licence, Passport,
-                    NTSA, Migration and more.
-                </p>
-
-                <strong class="feature-arrow">→</strong>
-
-            </a>
-
-
-            <a href="#services" class="feature-card">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-pen-nib"></i>
-                </div>
-
-                <h3>Design & Digital</h3>
-
-                <p>
-                    Posters, Business Cards, Logos,
-                    CVs, Websites and more.
-                </p>
-
-                <strong class="feature-arrow">→</strong>
-
-            </a>
-
-
-            <a href="#services" class="feature-card">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-briefcase"></i>
-                </div>
-
-                <h3>Employment & Abroad Jobs</h3>
-
-                <p>
-                    Job links, Applications,
-                    CV Writing and more.
-                </p>
-
-                <strong class="feature-arrow">→</strong>
-
-            </a>
-
-
-            <a href="#why-us" class="feature-card">
-
-                <div class="feature-icon">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-
-                <h3>Fast & Secure Service</h3>
-
-                <p>
-                    Professional support,
-                    100% confidentiality.
-                </p>
-
-                <strong class="feature-arrow">→</strong>
-
+            <a href="#services" class="btn btn-outline">
+                <i class="fa-solid fa-arrow-right"></i>
+                &nbsp; Explore Services
             </a>
 
         </div>
@@ -275,21 +132,145 @@
 
 
 <!-- =====================================================
+     HOME HIGHLIGHTS
+===================================================== -->
+
+<section class="highlights">
+
+    <div class="highlight-grid">
+
+        <div class="highlight-card">
+
+            <div class="icon">
+                <i class="fa-solid fa-building-columns"></i>
+            </div>
+
+            <h3>
+                Government &amp; E-Citizen
+            </h3>
+
+            <p>
+                KRA, Good Conduct, CRB, HELB,
+                EACC, TSC and more.
+            </p>
+
+        </div>
+
+
+        <div class="highlight-card">
+
+            <div class="icon">
+                <i class="fa-solid fa-car"></i>
+            </div>
+
+            <h3>
+                Transport, Passport &amp; Migration
+            </h3>
+
+            <p>
+                Driving Licence, Passport,
+                NTSA, Migration and more.
+            </p>
+
+        </div>
+
+
+        <div class="highlight-card">
+
+            <div class="icon">
+                <i class="fa-solid fa-pen-nib"></i>
+            </div>
+
+            <h3>
+                Design &amp; Digital
+            </h3>
+
+            <p>
+                Posters, Business Cards, Logos,
+                CVs, Websites and more.
+            </p>
+
+        </div>
+
+
+        <div class="highlight-card">
+
+            <div class="icon">
+                <i class="fa-solid fa-briefcase"></i>
+            </div>
+
+            <h3>
+                Employment &amp; Abroad Jobs
+            </h3>
+
+            <p>
+                Job links, Applications,
+                CV Writing and more.
+            </p>
+
+        </div>
+
+
+        <div class="highlight-card">
+
+            <div class="icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <h3>
+                Fast &amp; Secure Service
+            </h3>
+
+            <p>
+                Professional support,
+                100% confidentiality.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WELCOME
+===================================================== -->
+
+<section class="welcome">
+
+    <div class="welcome-content">
+
+        <h2>
+            Welcome to
+            <span>Elvis_costelo Digital Services</span>
+        </h2>
+
+        <p>
+            Your trusted digital partner for government applications,
+            professional documents, creative design and online services.
+            We make digital services easier, faster and more convenient.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
      SERVICES
 ===================================================== -->
 
-<section id="services" class="section-dark services-section">
+<section class="services" id="services">
 
     <div class="section-heading">
 
-        <div class="section-kicker">
-            <span></span>
+        <div class="eyebrow">
             WHAT WE DO
-            <span></span>
         </div>
 
         <h2>
-            Our <strong>Services</strong>
+            Our <span>Services</span>
         </h2>
 
         <p>
@@ -300,653 +281,709 @@
     </div>
 
 
-    <!-- GOVERNMENT -->
+    <div class="services-grid">
 
-    <div class="service-category">
 
-        <div class="category-title">
-            <div class="category-icon">
+        <!-- GOVERNMENT -->
+
+        <div
+            class="service-card"
+            data-service="KRA Services"
+        >
+
+            <h3>
                 <i class="fa-solid fa-building-columns"></i>
+                KRA Services
+            </h3>
+
+            <p>
+                KRA-related online services and
+                application assistance.
+            </p>
+
+            <div class="service-price">
+                KSh 250
             </div>
 
-            <div>
-                <span>01</span>
-                <h3>Government & E-Citizen Services</h3>
-            </div>
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
         </div>
 
 
-        <div class="services-grid">
-
-
-            <article class="service-card" data-service="KRA Services">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-file-invoice-dollar"></i>
-                </div>
-
-                <h3>KRA Services</h3>
-
-                <p>
-                    KRA-related online services and
-                    application assistance.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>KSh 250</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
-
-
-            <article class="service-card" data-service="E-Citizen Services">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-globe"></i>
-                </div>
-
-                <h3>E-Citizen Services</h3>
-
-                <p>
-                    Assistance with various
-                    E-Citizen online services.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>FEE VARIES</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
-
-
-            <article class="service-card" data-service="Good Conduct Certificate Assistance">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-certificate"></i>
-                </div>
-
-                <h3>Good Conduct Certificate Assistance</h3>
-
-                <p>
-                    Assistance with Good Conduct
-                    Certificate applications.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>KSh 250</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
-
-
-            <article class="service-card" data-service="CRB Clearance & Services">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-check-double"></i>
-                </div>
-
-                <h3>CRB Clearance & Services</h3>
-
-                <p>
-                    CRB clearance and related
-                    application assistance.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>KSh 300</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
-
-
-            <article class="service-card" data-service="EACC Clearance">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-shield"></i>
-                </div>
-
-                <h3>EACC Clearance</h3>
-
-                <p>
-                    Assistance with EACC clearance
-                    application processes.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>KSh 300</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
-
-
-            <article class="service-card" data-service="Company Registration">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-building"></i>
-                </div>
-
-                <h3>Company Registration</h3>
-
-                <p>
-                    Assistance with online company
-                    registration processes.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>KSh 20,000</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
-
-
-            <article class="service-card" data-service="NSSF & SHIF E-Slip">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-file-circle-check"></i>
-                </div>
-
-                <h3>NSSF & SHIF E-Slip</h3>
-
-                <p>
-                    Assistance with NSSF and SHIF
-                    online services and e-slips.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>KSh 300</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
-
-
-            <article class="service-card" data-service="TSC Number Application">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-user-tie"></i>
-                </div>
-
-                <h3>TSC Number Application</h3>
-
-                <p>
-                    Assistance with TSC number
-                    application.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>KSh 1,000</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
-
-
-            <article class="service-card" data-service="TSC Wealth Declaration & Related Services">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-file-signature"></i>
-                </div>
-
-                <h3>TSC Wealth Declaration & Related Services</h3>
-
-                <p>
-                    Assistance with TSC wealth declaration
-                    and related services.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>KSh 300</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
-
-
-            <article class="service-card" data-service="HELB Loan Application">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-
-                <h3>HELB Loan Application</h3>
-
-                <p>
-                    Assistance with HELB loan
-                    application processes.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>KSh 1,000</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
-
-
-            <article class="service-card" data-service="HELB Compliance Certificate">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-file-circle-check"></i>
-                </div>
-
-                <h3>HELB Compliance Certificate</h3>
-
-                <p>
-                    Assistance with HELB compliance
-                    certificate services.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>KSh 300</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
+        <div
+            class="service-card"
+            data-service="E-Citizen Services"
+        >
+
+            <h3>
+                <i class="fa-solid fa-globe"></i>
+                E-Citizen Services
+            </h3>
+
+            <p>
+                Assistance with various
+                E-Citizen online services.
+            </p>
+
+            <div class="service-price">
+                FEE VARIES
+            </div>
+
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
 
         </div>
 
-    </div>
 
+        <div
+            class="service-card"
+            data-service="Good Conduct Certificate Assistance"
+        >
 
-    <!-- TRANSPORT -->
+            <h3>
+                <i class="fa-solid fa-file-circle-check"></i>
+                Good Conduct Certificate Assistance
+            </h3>
 
-    <div class="service-category">
+            <p>
+                Assistance with Good Conduct
+                Certificate applications.
+            </p>
 
-        <div class="category-title">
-            <div class="category-icon">
-                <i class="fa-solid fa-car"></i>
+            <div class="service-price">
+                KSh 250
             </div>
 
-            <div>
-                <span>02</span>
-                <h3>Transport, Passport & Migration</h3>
-            </div>
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
         </div>
 
 
-        <div class="services-grid">
+        <div
+            class="service-card"
+            data-service="CRB Clearance & Services"
+        >
 
-            <article class="service-card" data-service="ALL NTSA Services">
+            <h3>
+                <i class="fa-solid fa-file-shield"></i>
+                CRB Clearance &amp; Services
+            </h3>
 
-                <div class="service-icon">
-                    <i class="fa-solid fa-road"></i>
-                </div>
+            <p>
+                CRB clearance and related
+                application assistance.
+            </p>
 
-                <h3>ALL NTSA Services</h3>
+            <div class="service-price">
+                KSh 300
+            </div>
 
-                <p>
-                    Assistance with NTSA online
-                    services and applications.
-                </p>
+            <br>
 
-                <div class="service-bottom">
-                    <strong>KSh 300</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
-
-
-            <article class="service-card" data-service="Driving Licence Services">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-id-card"></i>
-                </div>
-
-                <h3>Driving Licence Services</h3>
-
-                <p>
-                    Assistance with driving licence
-                    related services.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>KSh 300</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
-
-
-            <article class="service-card" data-service="Passport Application Assistance">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-passport"></i>
-                </div>
-
-                <h3>Passport Application Assistance</h3>
-
-                <p>
-                    Assistance with passport
-                    application processes.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>KSh 1,000</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
-
-
-            <article class="service-card" data-service="Temporary Passport Application">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-file"></i>
-                </div>
-
-                <h3>Temporary Passport Application</h3>
-
-                <p>
-                    Assistance with temporary
-                    passport applications.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>KSh 300</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
-
-
-            <article class="service-card" data-service="Migration Services">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-plane-departure"></i>
-                </div>
-
-                <h3>Migration Services</h3>
-
-                <p>
-                    Assistance with migration
-                    related services.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>FEE VARIES</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
 
         </div>
 
-    </div>
 
+        <div
+            class="service-card"
+            data-service="EACC Clearance"
+        >
 
-    <!-- DIGITAL -->
+            <h3>
+                <i class="fa-solid fa-shield-halved"></i>
+                EACC Clearance
+            </h3>
 
-    <div class="service-category">
+            <p>
+                Assistance with EACC clearance
+                application processes.
+            </p>
 
-        <div class="category-title">
-            <div class="category-icon">
-                <i class="fa-solid fa-pen-nib"></i>
+            <div class="service-price">
+                KSh 300
             </div>
 
-            <div>
-                <span>03</span>
-                <h3>Digital & Creative</h3>
-            </div>
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
         </div>
 
 
-        <div class="services-grid">
+        <div
+            class="service-card"
+            data-service="Company Registration"
+        >
 
-            <article class="service-card" data-service="Website Design">
-                <div class="service-icon">
-                    <i class="fa-solid fa-laptop-code"></i>
-                </div>
+            <h3>
+                <i class="fa-solid fa-building"></i>
+                Company Registration
+            </h3>
 
-                <h3>Website Design</h3>
+            <p>
+                Assistance with online company
+                registration processes.
+            </p>
 
-                <p>
-                    Professional website design
-                    and development.
-                </p>
+            <div class="service-price">
+                KSh 20,000
+            </div>
 
-                <div class="service-bottom">
-                    <strong>NEGOTIABLE</strong>
+            <br>
 
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-            </article>
-
-
-            <article class="service-card" data-service="Web Designing">
-                <div class="service-icon">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-
-                <h3>Web Designing</h3>
-
-                <p>
-                    Modern and responsive
-                    website solutions.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>NEGOTIABLE</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-            </article>
-
-
-            <article class="service-card" data-service="Poster Design">
-                <div class="service-icon">
-                    <i class="fa-solid fa-image"></i>
-                </div>
-
-                <h3>Poster Design</h3>
-
-                <p>
-                    Professional posters for
-                    businesses and events.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>NEGOTIABLE</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-            </article>
-
-
-            <article class="service-card" data-service="Business Cards">
-                <div class="service-icon">
-                    <i class="fa-solid fa-address-card"></i>
-                </div>
-
-                <h3>Business Cards</h3>
-
-                <p>
-                    Clean professional business
-                    card designs.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>NEGOTIABLE</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-            </article>
-
-
-            <article class="service-card" data-service="Tags & Branding Materials">
-                <div class="service-icon">
-                    <i class="fa-solid fa-tags"></i>
-                </div>
-
-                <h3>Tags & Branding Materials</h3>
-
-                <p>
-                    Creative branding and
-                    promotional materials.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>NEGOTIABLE</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-            </article>
-
-
-            <article class="service-card" data-service="CV Writing">
-                <div class="service-icon">
-                    <i class="fa-solid fa-file-lines"></i>
-                </div>
-
-                <h3>CV Writing</h3>
-
-                <p>
-                    Professional CV preparation
-                    and formatting.
-                </p>
-
-                <div class="service-bottom">
-                    <strong>KSh 300</strong>
-
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-            </article>
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
 
         </div>
 
-    </div>
 
+        <div
+            class="service-card"
+            data-service="NSSF & SHIF E-Slip"
+        >
 
-    <!-- EMPLOYMENT -->
+            <h3>
+                <i class="fa-solid fa-id-card"></i>
+                NSSF &amp; SHIF E-Slip
+            </h3>
 
-    <div class="service-category">
+            <p>
+                Assistance with NSSF and SHIF
+                online services and e-slips.
+            </p>
 
-        <div class="category-title">
-            <div class="category-icon">
-                <i class="fa-solid fa-briefcase"></i>
+            <div class="service-price">
+                KSh 300
             </div>
 
-            <div>
-                <span>04</span>
-                <h3>Employment & Abroad Jobs</h3>
-            </div>
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
         </div>
 
 
-        <div class="services-grid">
+        <div
+            class="service-card"
+            data-service="TSC Number Application"
+        >
 
-            <article class="service-card" data-service="Abroad Jobs Agency Linking">
+            <h3>
+                <i class="fa-solid fa-chalkboard-user"></i>
+                TSC Number Application
+            </h3>
 
-                <div class="service-icon">
-                    <i class="fa-solid fa-earth-africa"></i>
-                </div>
+            <p>
+                Assistance with TSC number
+                application services.
+            </p>
 
-                <h3>Abroad Jobs Agency Linking</h3>
+            <div class="service-price">
+                KSh 1,000
+            </div>
 
-                <p>
-                    Assistance with connecting
-                    clients to job opportunities.
-                </p>
+            <br>
 
-                <div class="service-bottom">
-                    <strong>NEGOTIABLE</strong>
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
 
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
-
-            </article>
+        </div>
 
 
-            <article class="service-card" data-service="Application Assistance">
+        <div
+            class="service-card"
+            data-service="TSC Wealth Declaration & Related Services"
+        >
 
-                <div class="service-icon">
-                    <i class="fa-solid fa-paper-plane"></i>
-                </div>
+            <h3>
+                <i class="fa-solid fa-file-signature"></i>
+                TSC Wealth Declaration &amp; Related Services
+            </h3>
 
-                <h3>Application Assistance</h3>
+            <p>
+                Assistance with TSC wealth declaration
+                and related services.
+            </p>
 
-                <p>
-                    Professional assistance with
-                    online applications.
-                </p>
+            <div class="service-price">
+                KSh 300
+            </div>
 
-                <div class="service-bottom">
-                    <strong>NEGOTIABLE</strong>
+            <br>
 
-                    <button type="button" class="service-button">
-                        Request Service <span>→</span>
-                    </button>
-                </div>
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
 
-            </article>
+        </div>
+
+
+        <div
+            class="service-card"
+            data-service="HELB Loan Application"
+        >
+
+            <h3>
+                <i class="fa-solid fa-graduation-cap"></i>
+                HELB Loan Application
+            </h3>
+
+            <p>
+                Assistance with HELB loan
+                application services.
+            </p>
+
+            <div class="service-price">
+                KSh 1,000
+            </div>
+
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div
+            class="service-card"
+            data-service="HELB Compliance Certificate"
+        >
+
+            <h3>
+                <i class="fa-solid fa-certificate"></i>
+                HELB Compliance Certificate
+            </h3>
+
+            <p>
+                Assistance with HELB compliance
+                certificate services.
+            </p>
+
+            <div class="service-price">
+                KSh 300
+            </div>
+
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <!-- TRANSPORT & TRAVEL -->
+
+        <div
+            class="service-card"
+            data-service="ALL NTSA Services"
+        >
+
+            <h3>
+                <i class="fa-solid fa-road"></i>
+                ALL NTSA Services
+            </h3>
+
+            <p>
+                Assistance with various
+                NTSA online services.
+            </p>
+
+            <div class="service-price">
+                KSh 300
+            </div>
+
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div
+            class="service-card"
+            data-service="Driving Licence Services"
+        >
+
+            <h3>
+                <i class="fa-solid fa-id-card"></i>
+                Driving Licence Services
+            </h3>
+
+            <p>
+                Assistance with driving licence
+                related services.
+            </p>
+
+            <div class="service-price">
+                KSh 300
+            </div>
+
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div
+            class="service-card"
+            data-service="Passport Application Assistance"
+        >
+
+            <h3>
+                <i class="fa-solid fa-passport"></i>
+                Passport Application Assistance
+            </h3>
+
+            <p>
+                Assistance with passport
+                application processes.
+            </p>
+
+            <div class="service-price">
+                KSh 1,000
+            </div>
+
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div
+            class="service-card"
+            data-service="Temporary Passport Application"
+        >
+
+            <h3>
+                <i class="fa-solid fa-passport"></i>
+                Temporary Passport Application
+            </h3>
+
+            <p>
+                Assistance with temporary
+                passport applications.
+            </p>
+
+            <div class="service-price">
+                KSh 300
+            </div>
+
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div
+            class="service-card"
+            data-service="Migration Services"
+        >
+
+            <h3>
+                <i class="fa-solid fa-plane-departure"></i>
+                Migration Services
+            </h3>
+
+            <p>
+                Assistance with selected
+                migration-related services.
+            </p>
+
+            <div class="service-price">
+                FEE VARIES
+            </div>
+
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <!-- DESIGN & DIGITAL -->
+
+        <div
+            class="service-card"
+            data-service="Website Design"
+        >
+
+            <h3>
+                <i class="fa-solid fa-laptop-code"></i>
+                Website Design
+            </h3>
+
+            <p>
+                Professional website design
+                and development services.
+            </p>
+
+            <div class="service-price">
+                NEGOTIABLE
+            </div>
+
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div
+            class="service-card"
+            data-service="Web Designing"
+        >
+
+            <h3>
+                <i class="fa-solid fa-code"></i>
+                Web Designing
+            </h3>
+
+            <p>
+                Modern and responsive
+                web design solutions.
+            </p>
+
+            <div class="service-price">
+                NEGOTIABLE
+            </div>
+
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div
+            class="service-card"
+            data-service="Poster Design"
+        >
+
+            <h3>
+                <i class="fa-solid fa-image"></i>
+                Poster Design
+            </h3>
+
+            <p>
+                Professional posters for
+                businesses, events and brands.
+            </p>
+
+            <div class="service-price">
+                NEGOTIABLE
+            </div>
+
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div
+            class="service-card"
+            data-service="Business Cards"
+        >
+
+            <h3>
+                <i class="fa-solid fa-address-card"></i>
+                Business Cards
+            </h3>
+
+            <p>
+                Clean and professional
+                business card designs.
+            </p>
+
+            <div class="service-price">
+                NEGOTIABLE
+            </div>
+
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div
+            class="service-card"
+            data-service="Tags & Branding Materials"
+        >
+
+            <h3>
+                <i class="fa-solid fa-tags"></i>
+                Tags &amp; Branding Materials
+            </h3>
+
+            <p>
+                Branding materials and
+                professional tag designs.
+            </p>
+
+            <div class="service-price">
+                NEGOTIABLE
+            </div>
+
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div
+            class="service-card"
+            data-service="CV Writing"
+        >
+
+            <h3>
+                <i class="fa-solid fa-file-lines"></i>
+                CV Writing
+            </h3>
+
+            <p>
+                Professional CV writing
+                and document preparation.
+            </p>
+
+            <div class="service-price">
+                KSh 300
+            </div>
+
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <!-- EMPLOYMENT -->
+
+        <div
+            class="service-card"
+            data-service="Abroad Jobs Agency Linking"
+        >
+
+            <h3>
+                <i class="fa-solid fa-earth-africa"></i>
+                Abroad Jobs Agency Linking
+            </h3>
+
+            <p>
+                Assistance with linking clients
+                to abroad job opportunities.
+            </p>
+
+            <div class="service-price">
+                NEGOTIABLE
+            </div>
+
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div
+            class="service-card"
+            data-service="Application Assistance"
+        >
+
+            <h3>
+                <i class="fa-solid fa-file-circle-plus"></i>
+                Application Assistance
+            </h3>
+
+            <p>
+                Professional assistance with
+                selected job and online applications.
+            </p>
+
+            <div class="service-price">
+                NEGOTIABLE
+            </div>
+
+            <br>
+
+            <a href="javascript:void(0)" class="service-link">
+                Request Service
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
 
         </div>
 
@@ -959,22 +996,21 @@
      HOW IT WORKS
 ===================================================== -->
 
-<section id="how-it-works" class="section-light">
+<section class="how-it-works" id="how-it-works">
 
-    <div class="section-heading dark-heading">
+    <div class="section-heading">
 
-        <div class="section-kicker">
-            <span></span>
+        <div class="eyebrow">
             SIMPLE PROCESS
-            <span></span>
         </div>
 
         <h2>
-            How It <strong>Works</strong>
+            How It <span>Works</span>
         </h2>
 
         <p>
-            Getting your service is simple, clear and straightforward.
+            Getting your service done is simple.
+            Follow these four easy steps.
         </p>
 
     </div>
@@ -983,38 +1019,75 @@
     <div class="steps-grid">
 
         <div class="step-card">
-            <div class="step-number">01</div>
-            <i class="fa-solid fa-comments"></i>
-            <h3>Contact Us</h3>
-            <p>Choose the service you need and contact us.</p>
+
+            <div class="step-number">
+                01
+            </div>
+
+            <h3>
+                Contact Us
+            </h3>
+
+            <p>
+                Choose the service you need
+                and contact us through WhatsApp
+                or the website.
+            </p>
+
         </div>
 
-        <div class="step-card">
-            <div class="step-number">02</div>
-            <i class="fa-solid fa-share-nodes"></i>
-            <h3>Share Details</h3>
-            <p>Provide the information required for your service.</p>
-        </div>
 
         <div class="step-card">
-            <div class="step-number">03</div>
-            <i class="fa-solid fa-gears"></i>
-            <h3>We Assist</h3>
-            <p>We work on your requested service professionally.</p>
+
+            <div class="step-number">
+                02
+            </div>
+
+            <h3>
+                Share Details
+            </h3>
+
+            <p>
+                Provide the information required
+                for your selected service.
+            </p>
+
         </div>
 
-        <div class="step-card">
-            <div class="step-number">04</div>
-            <i class="fa-solid fa-file-circle-check"></i>
-            <h3>Get Your Service</h3>
-            <p>Your completed work is handled through WhatsApp.</p>
-        </div>
 
         <div class="step-card">
-            <div class="step-number">05</div>
-            <i class="fa-solid fa-mobile-screen-button"></i>
-            <h3>Pay for Your Service</h3>
-            <p>Make payment through Pochi la Biashara.</p>
+
+            <div class="step-number">
+                03
+            </div>
+
+            <h3>
+                We Assist
+            </h3>
+
+            <p>
+                We process and assist with
+                your requested service.
+            </p>
+
+        </div>
+
+
+        <div class="step-card">
+
+            <div class="step-number">
+                04
+            </div>
+
+            <h3>
+                Get Your Service
+            </h3>
+
+            <p>
+                Receive your completed work
+                directly through WhatsApp.
+            </p>
+
         </div>
 
     </div>
@@ -1026,71 +1099,73 @@
      WHY CHOOSE US
 ===================================================== -->
 
-<section id="why-us" class="section-dark">
+<section class="why-us" id="why-us">
 
     <div class="section-heading">
 
-        <div class="section-kicker">
-            <span></span>
-            WHY US
-            <span></span>
+        <div class="eyebrow">
+            WHY ELVIS_COSTELO
         </div>
 
         <h2>
-            Why Choose <strong>Us</strong>
+            Why <span>Choose Us</span>
         </h2>
+
+        <p>
+            Professional digital assistance built around
+            convenience, reliability and confidentiality.
+        </p>
 
     </div>
 
 
     <div class="why-grid">
 
-        <div class="premium-card">
-            <div class="premium-icon">
-                <i class="fa-solid fa-bolt"></i>
-            </div>
-            <h3>Fast Service</h3>
-            <p>We value your time and handle requests efficiently.</p>
+        <div class="why-card">
+
+            <i class="fa-solid fa-bolt fa-2x"></i>
+
+            <h3>
+                Fast Service
+            </h3>
+
+            <p>
+                We focus on making your service
+                process simple and efficient.
+            </p>
+
         </div>
 
-        <div class="premium-card">
-            <div class="premium-icon">
-                <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <h3>Confidential</h3>
-            <p>Your information is treated with professionalism and confidentiality.</p>
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-shield-halved fa-2x"></i>
+
+            <h3>
+                Secure &amp; Confidential
+            </h3>
+
+            <p>
+                Your personal information is
+                handled with care and confidentiality.
+            </p>
+
         </div>
 
-        <div class="premium-card">
-            <div class="premium-icon">
-                <i class="fa-solid fa-handshake"></i>
-            </div>
-            <h3>Reliable Support</h3>
-            <p>We provide direct assistance throughout your request.</p>
-        </div>
 
-        <div class="premium-card">
-            <div class="premium-icon">
-                <i class="fa-solid fa-wallet"></i>
-            </div>
-            <h3>Affordable</h3>
-            <p>Clear service charges designed to remain accessible.</p>
-        </div>
+        <div class="why-card">
 
-        <div class="premium-card">
-            <div class="premium-icon">
-                <i class="fa-solid fa-user-check"></i>
-            </div>
-            <h3>Professional</h3>
-            <p>Every request receives careful and professional attention.</p>
-        </div>
+            <i class="fa-solid fa-handshake fa-2x"></i>
 
-        <div class="premium-card">
-            <div class="premium-icon">
-                <i class="fa-solid fa-headset"></i>
-            </div>
-            <h3>Direct Assistance</h3>
-            <p>Communicate directly with us through WhatsApp.</p>
+            <h3>
+                Professional Support
+            </h3>
+
+            <p>
+                We provide clear assistance from
+                request to completion.
+            </p>
+
         </div>
 
     </div>
@@ -1102,43 +1177,82 @@
      REQUEST SERVICE
 ===================================================== -->
 
-<section class="section-light" id="request">
+<section class="request-section">
+
+    <div class="section-heading">
+
+        <div class="eyebrow">
+            NEED ASSISTANCE?
+        </div>
+
+        <h2>
+            Request a <span>Service</span>
+        </h2>
+
+        <p>
+            Fill in your details and we will
+            assist you through WhatsApp.
+        </p>
+
+    </div>
+
 
     <div class="request-box">
 
-        <div class="section-heading dark-heading">
-
-            <div class="section-kicker">
-                <span></span>
-                GET STARTED
-                <span></span>
-            </div>
-
-            <h2>
-                Request a <strong>Service</strong>
-            </h2>
-
-        </div>
-
-
-        <form id="serviceRequestForm">
+        <form
+            class="request-form"
+            id="serviceRequestForm"
+        >
 
             <div class="form-group">
-                <label>Your Name</label>
-                <input type="text" id="requestName" required>
+
+                <label for="requestName">
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    id="requestName"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+
             </div>
 
+
             <div class="form-group">
-                <label>WhatsApp Number</label>
-                <input type="tel" id="requestWhatsApp" required>
+
+                <label for="requestWhatsApp">
+                    WhatsApp Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="requestWhatsApp"
+                    name="whatsapp"
+                    placeholder="e.g. 0795873094"
+                    required
+                >
+
             </div>
 
+
             <div class="form-group">
-                <label>Select Service</label>
 
-                <select id="requestService" required>
+                <label for="requestService">
+                    Service Needed
+                </label>
 
-                    <option value="">Choose a service</option>
+                <select
+                    id="requestService"
+                    name="service"
+                    required
+                >
+
+                    <option value="">
+                        Select a service
+                    </option>
 
                     <option>KRA Services</option>
                     <option>E-Citizen Services</option>
@@ -1169,16 +1283,30 @@
 
             </div>
 
+
             <div class="form-group">
-                <label>Additional Details</label>
+
+                <label for="requestMessage">
+                    Additional Details
+                </label>
+
                 <textarea
                     id="requestMessage"
-                    placeholder="Tell us anything important about your request..."
+                    name="message"
+                    rows="5"
+                    placeholder="Tell us briefly what you need..."
                 ></textarea>
+
             </div>
 
-            <button type="submit" class="submit-button">
-                SEND REQUEST VIA WHATSAPP →
+
+            <button
+                type="submit"
+                class="request-submit"
+            >
+                SEND REQUEST VIA WHATSAPP
+                &nbsp;
+                <i class="fa-brands fa-whatsapp"></i>
             </button>
 
         </form>
@@ -1192,35 +1320,40 @@
      ABOUT
 ===================================================== -->
 
-<section id="about" class="section-dark about-section">
+<section class="about" id="about">
 
-    <div class="about-box">
+    <div class="about-content">
 
-        <div class="about-icon">
-            <i class="fa-solid fa-crown"></i>
+        <div class="section-heading">
+
+            <div class="eyebrow">
+                ABOUT US
+            </div>
+
+            <h2>
+                About <span>Elvis_costelo</span>
+            </h2>
+
         </div>
-
-        <div class="section-kicker">
-            <span></span>
-            ABOUT US
-            <span></span>
-        </div>
-
-        <h2>
-            Elvis<span>_costelo</span>
-            Digital Services
-        </h2>
 
         <p>
-            We provide convenient digital assistance for government
-            applications, creative design, CV writing, website services
-            and other online solutions.
+            Elvis_costelo Digital Services is a digital assistance
+            platform focused on making everyday online and creative
+            services easier and more accessible.
         </p>
 
         <p>
-            Our goal is simple — make digital services easier,
-            faster and more accessible while maintaining
-            professionalism and confidentiality.
+            From government and E-Citizen services to CV writing,
+            website design, graphic design, transport services and
+            application assistance, we provide convenient support
+            from one place.
+        </p>
+
+        <p>
+            Our goal is simple:
+            <strong>
+                fast, secure and reliable digital services.
+            </strong>
         </p>
 
     </div>
@@ -1232,22 +1365,20 @@
      CONTACT
 ===================================================== -->
 
-<section id="contact" class="section-light">
+<section class="contact" id="contact">
 
-    <div class="section-heading dark-heading">
+    <div class="section-heading">
 
-        <div class="section-kicker">
-            <span></span>
+        <div class="eyebrow">
             GET IN TOUCH
-            <span></span>
         </div>
 
         <h2>
-            Contact <strong>Us</strong>
+            Contact <span>Us</span>
         </h2>
 
         <p>
-            Need assistance? Reach us directly.
+            Ready to get started? Reach us directly.
         </p>
 
     </div>
@@ -1255,46 +1386,52 @@
 
     <div class="contact-grid">
 
-        <a
-            href="https://wa.me/254795873094"
-            target="_blank"
-            class="contact-card"
-        >
-            <div class="contact-icon whatsapp">
-                <i class="fa-brands fa-whatsapp"></i>
-            </div>
 
-            <h3>WhatsApp</h3>
-            <p>+254 795 873 094</p>
-            <strong>Chat With Us →</strong>
-        </a>
+        <div class="contact-card">
 
+            <i class="fa-brands fa-whatsapp fa-2x"></i>
 
-        <a
-            href="mailto:elvisbarakatsuma@gmail.com"
-            class="contact-card"
-        >
-            <div class="contact-icon">
-                <i class="fa-solid fa-envelope"></i>
-            </div>
+            <h3>
+                WhatsApp
+            </h3>
 
-            <h3>Email</h3>
-            <p>elvisbarakatsuma@gmail.com</p>
-            <strong>Send Email →</strong>
-        </a>
+            <a
+                href="https://wa.me/254795873094"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                +254 795 873 094
+            </a>
+
+        </div>
 
 
         <div class="contact-card">
 
-            <div class="contact-icon">
-                <i class="fa-solid fa-mobile-screen"></i>
-            </div>
+            <i class="fa-solid fa-envelope fa-2x"></i>
 
-            <h3>Pochi la Biashara</h3>
+            <h3>
+                Email
+            </h3>
 
-            <p>+254 142 453 589</p>
+            <a href="mailto:elvisbarakatsuma@gmail.com">
+                elvisbarakatsuma@gmail.com
+            </a>
 
-            <strong>Payment Number</strong>
+        </div>
+
+
+        <div class="contact-card">
+
+            <i class="fa-solid fa-money-bill-transfer fa-2x"></i>
+
+            <h3>
+                Pochi la Biashara
+            </h3>
+
+            <p>
+                +254 142 453 589
+            </p>
 
         </div>
 
@@ -1321,39 +1458,55 @@
             type="button"
             class="payment-close"
             onclick="closePaymentModal()"
+            aria-label="Close"
         >
-            ×
+            &times;
         </button>
 
 
-        <div class="payment-top">
+        <div class="payment-icon">
 
-            <div class="payment-crown">
-                <i class="fa-solid fa-crown"></i>
-            </div>
-
-            <span>SECURE PAYMENT</span>
-
-            <h2>Complete Your Request</h2>
-
-            <p>
-                Make payment through Pochi la Biashara,
-                then submit your transaction details below.
-            </p>
+            <i class="fa-solid fa-credit-card fa-lg"></i>
 
         </div>
 
 
+        <h2>
+            Complete Your Payment
+        </h2>
+
+
+        <p class="payment-message">
+            Pay through Pochi la Biashara and
+            submit your M-PESA transaction code below.
+        </p>
+
+
         <div class="payment-summary">
 
-            <div>
-                <span>Service</span>
-                <strong id="paymentService">—</strong>
+            <div class="payment-row">
+
+                <span>
+                    Service
+                </span>
+
+                <strong id="paymentService">
+                    -
+                </strong>
+
             </div>
 
-            <div>
-                <span>Service Fee</span>
-                <strong id="paymentAmount">—</strong>
+
+            <div class="payment-row">
+
+                <span>
+                    Service Fee
+                </span>
+
+                <strong id="paymentPrice">
+                    -
+                </strong>
+
             </div>
 
         </div>
@@ -1361,48 +1514,74 @@
 
         <div class="mpesa-box">
 
-            <small>PAY TO POCHI LA BIASHARA</small>
+            <span>
+                PAY VIA POCHI LA BIASHARA
+            </span>
 
             <strong id="pochiNumber">
                 +254 142 453 589
             </strong>
 
-            <span>
-                Use the number above to make your payment.
-            </span>
-
         </div>
 
 
-        <div class="payment-form">
+        <form class="payment-form">
 
-            <label for="paymentName">Your Name</label>
+            <div>
 
-            <input
-                type="text"
-                id="paymentName"
-                placeholder="Enter your name"
-            >
+                <label
+                    class="payment-label"
+                    for="paymentName"
+                >
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    id="paymentName"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+            </div>
 
 
-            <label for="paymentWhatsApp">WhatsApp Number</label>
+            <div>
 
-            <input
-                type="tel"
-                id="paymentWhatsApp"
-                placeholder="07XXXXXXXX"
-            >
+                <label
+                    class="payment-label"
+                    for="paymentWhatsApp"
+                >
+                    WhatsApp Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="paymentWhatsApp"
+                    placeholder="e.g. 0795873094"
+                    required
+                >
+
+            </div>
 
 
-            <label for="transactionCode">
-                M-PESA Transaction Code
-            </label>
+            <div>
 
-            <input
-                type="text"
-                id="transactionCode"
-                placeholder="Enter your M-PESA transaction code"
-            >
+                <label
+                    class="payment-label"
+                    for="transactionCode"
+                >
+                    M-PESA Transaction Code
+                </label>
+
+                <input
+                    type="text"
+                    id="transactionCode"
+                    placeholder="Enter your M-PESA transaction code"
+                    required
+                >
+
+            </div>
 
 
             <button
@@ -1410,15 +1589,17 @@
                 class="payment-submit"
                 onclick="submitPayment()"
             >
-                SUBMIT PAYMENT DETAILS →
+                SUBMIT PAYMENT DETAILS
+                &nbsp;
+                <i class="fa-brands fa-whatsapp"></i>
             </button>
 
-        </div>
+        </form>
 
 
         <p class="payment-note">
-            We will verify your payment manually and
-            contact you through WhatsApp.
+            We only require your M-PESA transaction code.
+            Never share your M-PESA PIN or OTP.
         </p>
 
     </div>
@@ -1427,27 +1608,37 @@
 
 
 <!-- =====================================================
-     FLOATING WHATSAPP
-===================================================== -->
-
-<a
-    href="https://wa.me/254795873094"
-    target="_blank"
-    class="whatsapp-float"
-    aria-label="Chat on WhatsApp"
->
-    <i class="fa-brands fa-whatsapp"></i>
-</a>
-
-
-<!-- =====================================================
      FOOTER
 ===================================================== -->
 
 <footer>
 
-    <div class="footer-logo">
-        Elvis<span>_costelo</span>
+    <h3>
+        Elvis_<span>costelo</span> Digital Services
+    </h3>
+
+    <div class="footer-links">
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#services">
+            Services
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#how-it-works">
+            How It Works
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
     </div>
 
     <p>
@@ -1455,17 +1646,29 @@
         All rights reserved.
     </p>
 
-    <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </div>
-
 </footer>
 
 
-<script src="script.js?v=10"></script>
+<!-- =====================================================
+     FLOATING WHATSAPP
+===================================================== -->
+
+<a
+    href="https://wa.me/254795873094"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp"
+>
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
 
 </body>
 </html>
