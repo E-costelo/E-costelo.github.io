@@ -19,14 +19,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: #111;
     line-height: 1.6;
-
-    /* BRAND BACKGROUND */
-    background-image: url("elvis-costelo-background.jpg");
-    background-size: cover;
-    background-position: center top;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-
+    background: #050505;
     min-height: 100vh;
 }
 
@@ -47,8 +40,6 @@ img {
     display: block;
 }
 
-/* ---------- GLOBAL CONTAINER ---------- */
-
 .container {
     width: min(1180px, 92%);
     margin: 0 auto;
@@ -58,14 +49,16 @@ section {
     scroll-margin-top: 90px;
 }
 
-/* ---------- HEADER ---------- */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 header {
     position: sticky;
     top: 0;
     z-index: 1000;
 
-    background: rgba(0, 0, 0, 0.96);
+    background: rgba(0, 0, 0, 0.97);
     border-bottom: 1px solid #c99618;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
 }
@@ -75,6 +68,7 @@ header {
     margin: 0 auto;
 
     min-height: 72px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -110,51 +104,72 @@ header {
     color: #e0ad25;
 }
 
-/* ---------- HERO ---------- */
+/* =========================================================
+   HOME / HERO
+   JPEG BACKGROUND ONLY HERE
+   ========================================================= */
 
 .hero {
     min-height: 620px;
+
     display: flex;
     align-items: center;
 
     position: relative;
     overflow: hidden;
 
-    background:
+    background-image:
         linear-gradient(
             90deg,
-            rgba(0, 0, 0, 0.94) 0%,
-            rgba(0, 0, 0, 0.78) 45%,
-            rgba(0, 0, 0, 0.25) 100%
-        );
+            rgba(0, 0, 0, 0.90) 0%,
+            rgba(0, 0, 0, 0.68) 35%,
+            rgba(0, 0, 0, 0.18) 75%,
+            rgba(0, 0, 0, 0.10) 100%
+        ),
+        url("elvis-costelo-background.jpg?v=2");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .hero-content {
     width: min(1180px, 92%);
     margin: 0 auto;
+
     padding: 90px 0;
+
     position: relative;
     z-index: 2;
 }
 
 .hero-label {
     display: inline-block;
+
     color: #e2ae22;
+
     border: 1px solid #d09b18;
     padding: 8px 15px;
+
     border-radius: 30px;
+
     font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 1.2px;
+
     margin-bottom: 22px;
-    background: rgba(0, 0, 0, 0.45);
+
+    background: rgba(0, 0, 0, 0.55);
 }
 
 .hero h1 {
-    max-width: 750px;
+    max-width: 700px;
+
     color: #fff;
+
     font-size: clamp(2.4rem, 6vw, 4.8rem);
     line-height: 1.05;
+
     margin-bottom: 22px;
 }
 
@@ -163,9 +178,12 @@ header {
 }
 
 .hero p {
-    max-width: 680px;
+    max-width: 650px;
+
     color: #f2f2f2;
+
     font-size: 1.1rem;
+
     margin-bottom: 32px;
 }
 
@@ -177,15 +195,20 @@ header {
 
 .btn {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
     min-height: 48px;
+
     padding: 12px 22px;
 
     border-radius: 7px;
+
     font-weight: 700;
+
     transition: 0.25s ease;
+
     cursor: pointer;
 }
 
@@ -201,8 +224,10 @@ header {
 
 .btn-outline {
     border: 1px solid #d8a31b;
+
     color: #fff;
-    background: rgba(0, 0, 0, 0.35);
+
+    background: rgba(0, 0, 0, 0.45);
 }
 
 .btn-outline:hover {
@@ -210,11 +235,13 @@ header {
     color: #000;
 }
 
-/* ---------- HIGHLIGHTS ---------- */
+/* =========================================================
+   HIGHLIGHTS
+   ========================================================= */
 
 .highlights {
     padding: 55px 0;
-    background: rgba(0, 0, 0, 0.94);
+    background: rgba(0, 0, 0, 0.96);
 }
 
 .highlight-grid {
@@ -225,9 +252,12 @@ header {
 
 .highlight-card {
     padding: 28px;
+
     border: 1px solid rgba(216, 163, 27, 0.45);
     border-radius: 12px;
-    background: rgba(20, 20, 20, 0.92);
+
+    background: #141414;
+
     text-align: center;
 }
 
@@ -241,20 +271,27 @@ header {
     font-size: 0.94rem;
 }
 
-/* ---------- SECTION HEADINGS ---------- */
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
 
 .section-heading {
     text-align: center;
+
     max-width: 760px;
+
     margin: 0 auto 45px;
 }
 
 .section-heading .label {
     color: #c89415;
+
     font-weight: 800;
     font-size: 0.82rem;
+
     letter-spacing: 2px;
     text-transform: uppercase;
+
     margin-bottom: 8px;
 }
 
@@ -267,21 +304,27 @@ header {
     color: #555;
 }
 
-/* ---------- WELCOME ---------- */
+/* =========================================================
+   WELCOME
+   ========================================================= */
 
 .welcome {
     padding: 90px 0;
-    background: rgba(255, 255, 255, 0.93);
+
+    background: rgba(255, 255, 255, 0.96);
 }
 
 .welcome-content {
     max-width: 850px;
+
     margin: 0 auto;
+
     text-align: center;
 }
 
 .welcome-content h2 {
     font-size: clamp(2rem, 4vw, 3rem);
+
     margin-bottom: 18px;
 }
 
@@ -294,11 +337,15 @@ header {
     margin-bottom: 12px;
 }
 
-/* ---------- SERVICES ---------- */
+/* =========================================================
+   SERVICES
+   NO JPEG HERE
+   ========================================================= */
 
 .services {
     padding: 90px 0;
-    background: rgba(0, 0, 0, 0.94);
+
+    background: #050505;
 }
 
 .services .section-heading h2 {
@@ -311,13 +358,16 @@ header {
 
 .services-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 22px;
 }
 
 .service-card {
     display: flex;
     flex-direction: column;
+
     min-height: 235px;
 
     padding: 25px;
@@ -325,46 +375,60 @@ header {
     border: 1px solid rgba(216, 163, 27, 0.45);
     border-radius: 12px;
 
-    background: rgba(24, 24, 24, 0.95);
+    background: #181818;
 
     transition: 0.25s ease;
 }
 
 .service-card:hover {
     transform: translateY(-5px);
+
     border-color: #e0ad25;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 .service-card h3 {
     color: #fff;
+
     font-size: 1.12rem;
+
     margin-bottom: 10px;
 }
 
 .service-card p {
     color: #cfcfcf;
+
     font-size: 0.9rem;
+
     flex: 1;
 }
 
 .service-price {
     color: #e0ad25;
+
     font-weight: 800;
+
     font-size: 1.15rem;
+
     margin: 18px 0;
 }
 
 .service-link {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
     min-height: 43px;
+
     padding: 10px 16px;
 
     border-radius: 6px;
+
     background: #d7a21a;
+
     color: #000;
 
     font-weight: 800;
@@ -377,39 +441,53 @@ header {
     background: #f0c342;
 }
 
-/* ---------- HOW IT WORKS ---------- */
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
 
 .how-it-works {
     padding: 90px 0;
-    background: rgba(255, 255, 255, 0.94);
+
+    background: rgba(255, 255, 255, 0.96);
 }
 
 .steps-grid {
     display: grid;
+
     grid-template-columns: repeat(5, 1fr);
+
     gap: 18px;
 }
 
 .step-card {
     text-align: center;
+
     padding: 25px 18px;
+
     border-radius: 12px;
+
     border: 1px solid #ddd;
-    background: rgba(255, 255, 255, 0.96);
+
+    background: #fff;
 }
 
 .step-number {
     width: 48px;
     height: 48px;
+
     margin: 0 auto 15px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     border-radius: 50%;
+
     background: #d7a21a;
+
     color: #000;
+
     font-weight: 900;
 }
 
@@ -419,14 +497,18 @@ header {
 
 .step-card p {
     color: #666;
+
     font-size: 0.88rem;
 }
 
-/* ---------- WHY CHOOSE US ---------- */
+/* =========================================================
+   WHY CHOOSE US
+   ========================================================= */
 
 .why-us {
     padding: 90px 0;
-    background: rgba(0, 0, 0, 0.94);
+
+    background: #050505;
 }
 
 .why-us .section-heading h2 {
@@ -439,24 +521,31 @@ header {
 
 .why-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 22px;
 }
 
 .why-card {
     padding: 28px;
+
     border: 1px solid rgba(216, 163, 27, 0.4);
+
     border-radius: 12px;
-    background: rgba(22, 22, 22, 0.94);
+
+    background: #161616;
 }
 
 .why-card .icon {
     font-size: 2rem;
+
     margin-bottom: 12px;
 }
 
 .why-card h3 {
     color: #e0ad25;
+
     margin-bottom: 8px;
 }
 
@@ -464,33 +553,44 @@ header {
     color: #ccc;
 }
 
-/* ---------- REQUEST FORM ---------- */
+/* =========================================================
+   REQUEST FORM
+   ========================================================= */
 
 .request-section {
     padding: 90px 0;
-    background: rgba(255, 255, 255, 0.94);
+
+    background: rgba(255, 255, 255, 0.96);
 }
 
 .request-box {
     max-width: 850px;
+
     margin: 0 auto;
 
     padding: 35px;
 
     border-radius: 14px;
-    background: rgba(255, 255, 255, 0.98);
+
+    background: #fff;
+
     border: 1px solid #ddd;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.12);
 }
 
 .request-form {
     display: grid;
+
     gap: 18px;
 }
 
 .form-group {
     display: flex;
+
     flex-direction: column;
+
     gap: 7px;
 }
 
@@ -502,12 +602,15 @@ header {
 .form-group select,
 .form-group textarea {
     width: 100%;
+
     padding: 13px 14px;
 
     border: 1px solid #ccc;
+
     border-radius: 7px;
 
     outline: none;
+
     background: #fff;
 }
 
@@ -515,24 +618,32 @@ header {
 .form-group select:focus,
 .form-group textarea:focus {
     border-color: #c99618;
-    box-shadow: 0 0 0 3px rgba(201, 150, 24, 0.12);
+
+    box-shadow:
+        0 0 0 3px rgba(201, 150, 24, 0.12);
 }
 
 .form-group textarea {
     min-height: 130px;
+
     resize: vertical;
 }
 
 .request-submit {
     border: none;
+
     padding: 14px 20px;
 
     border-radius: 7px;
+
     background: #d7a21a;
+
     color: #000;
 
     font-weight: 800;
+
     cursor: pointer;
+
     transition: 0.25s ease;
 }
 
@@ -540,22 +651,30 @@ header {
     background: #f0c342;
 }
 
-/* ---------- ABOUT ---------- */
+/* =========================================================
+   ABOUT
+   NO JPEG HERE
+   ========================================================= */
 
 .about {
     padding: 90px 0;
-    background: rgba(0, 0, 0, 0.94);
+
+    background: #050505;
 }
 
 .about-content {
     max-width: 850px;
+
     margin: 0 auto;
+
     text-align: center;
 }
 
 .about-content h2 {
     color: #fff;
+
     font-size: clamp(2rem, 4vw, 3rem);
+
     margin-bottom: 20px;
 }
 
@@ -565,29 +684,39 @@ header {
 
 .about-content p {
     color: #ccc;
+
     margin-bottom: 15px;
 }
 
-/* ---------- CONTACT ---------- */
+/* =========================================================
+   CONTACT
+   NO JPEG HERE
+   ========================================================= */
 
 .contact {
     padding: 90px 0;
-    background: rgba(255, 255, 255, 0.94);
+
+    background: rgba(255, 255, 255, 0.96);
 }
 
 .contact-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 22px;
 }
 
 .contact-card {
     padding: 30px;
+
     text-align: center;
 
     border: 1px solid #ddd;
+
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.96);
+
+    background: #fff;
 }
 
 .contact-card h3 {
@@ -596,28 +725,36 @@ header {
 
 .contact-card p {
     color: #555;
+
     word-break: break-word;
 }
 
 .contact-card a {
     color: #a97800;
+
     font-weight: 700;
 }
 
-/* ---------- PAYMENT MODAL ---------- */
+/* =========================================================
+   PAYMENT MODAL
+   ========================================================= */
 
 .payment-modal {
     position: fixed;
+
     inset: 0;
+
     z-index: 5000;
 
     display: none;
+
     align-items: center;
     justify-content: center;
 
     padding: 20px;
 
     background: rgba(0, 0, 0, 0.78);
+
     backdrop-filter: blur(5px);
 
     overflow-y: auto;
@@ -637,13 +774,16 @@ header {
     border-radius: 16px;
 
     background: #fff;
+
     color: #111;
 
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.5);
 }
 
 .payment-close {
     position: absolute;
+
     top: 12px;
     right: 15px;
 
@@ -651,34 +791,43 @@ header {
     height: 38px;
 
     border: none;
+
     border-radius: 50%;
 
     background: #111;
+
     color: #fff;
 
     font-size: 1.5rem;
+
     cursor: pointer;
 }
 
 .payment-icon {
     font-size: 2rem;
+
     margin-bottom: 8px;
 }
 
 .payment-label {
     color: #b17c00;
+
     font-size: 0.78rem;
+
     font-weight: 900;
+
     letter-spacing: 1.5px;
 }
 
 .payment-box h2 {
     font-size: 1.8rem;
+
     margin: 5px 0 10px;
 }
 
 .payment-message {
     color: #555;
+
     margin-bottom: 20px;
 }
 
@@ -686,14 +835,19 @@ header {
     margin-bottom: 18px;
 
     border: 1px solid #ddd;
+
     border-radius: 9px;
+
     overflow: hidden;
 }
 
 .payment-row {
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     gap: 15px;
 
     padding: 12px 14px;
@@ -715,9 +869,11 @@ header {
     padding: 18px;
 
     border: 1px solid #d3a020;
+
     border-radius: 10px;
 
     background: #fff8e4;
+
     text-align: center;
 
     margin-bottom: 20px;
@@ -725,39 +881,51 @@ header {
 
 .mpesa-box span {
     display: block;
+
     color: #7b5b00;
+
     font-size: 0.78rem;
+
     font-weight: 800;
+
     margin-bottom: 5px;
 }
 
 .mpesa-box strong {
     display: block;
+
     font-size: 1.45rem;
+
     letter-spacing: 1px;
+
     margin-bottom: 5px;
 }
 
 .mpesa-box p {
     color: #666;
+
     font-size: 0.85rem;
 }
 
 .payment-form {
     display: grid;
+
     gap: 8px;
 }
 
 .payment-form label {
     font-weight: 700;
+
     margin-top: 6px;
 }
 
 .payment-form input {
     width: 100%;
+
     padding: 13px 14px;
 
     border: 1px solid #ccc;
+
     border-radius: 7px;
 
     outline: none;
@@ -765,23 +933,30 @@ header {
 
 .payment-form input:focus {
     border-color: #c99618;
-    box-shadow: 0 0 0 3px rgba(201, 150, 24, 0.12);
+
+    box-shadow:
+        0 0 0 3px rgba(201, 150, 24, 0.12);
 }
 
 .payment-submit {
     width: 100%;
+
     margin-top: 20px;
 
     padding: 14px;
 
     border: none;
+
     border-radius: 7px;
 
     background: #d7a21a;
+
     color: #000;
 
     font-weight: 900;
+
     cursor: pointer;
+
     transition: 0.25s ease;
 }
 
@@ -791,18 +966,23 @@ header {
 
 .payment-note {
     margin-top: 12px;
+
     text-align: center;
 
     color: #777;
+
     font-size: 0.78rem;
 }
 
-/* ---------- FOOTER ---------- */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 footer {
     padding: 35px 0;
 
     background: #050505;
+
     color: #aaa;
 
     text-align: center;
@@ -816,8 +996,11 @@ footer strong {
 
 .footer-links {
     display: flex;
+
     justify-content: center;
+
     flex-wrap: wrap;
+
     gap: 18px;
 
     margin-top: 12px;
@@ -827,10 +1010,13 @@ footer strong {
     color: #dba51c;
 }
 
-/* ---------- FLOATING WHATSAPP ---------- */
+/* =========================================================
+   FLOATING WHATSAPP
+   ========================================================= */
 
 .whatsapp-float {
     position: fixed;
+
     right: 20px;
     bottom: 20px;
 
@@ -840,17 +1026,20 @@ footer strong {
     height: 58px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     border-radius: 50%;
 
     background: #25d366;
+
     color: #fff;
 
     font-size: 1.6rem;
 
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.3);
 
     transition: 0.25s ease;
 }
@@ -892,6 +1081,8 @@ footer strong {
 
     .hero {
         min-height: 560px;
+
+        background-position: center center;
     }
 
     .highlight-grid,
@@ -912,26 +1103,28 @@ footer strong {
 
 @media (max-width: 600px) {
 
-    body {
-        background-attachment: scroll;
-        background-position: center top;
+    .hero {
+        min-height: 540px;
+
+        background-position: center center;
     }
 
     .navbar {
         flex-direction: column;
+
         justify-content: center;
+
         gap: 8px;
+
         padding: 12px 0;
     }
 
     .nav-links {
         gap: 12px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
 
-    .hero {
-        min-height: 540px;
+        flex-wrap: wrap;
+
+        justify-content: center;
     }
 
     .hero-content {
@@ -948,6 +1141,7 @@ footer strong {
 
     .hero-buttons {
         flex-direction: column;
+
         align-items: stretch;
     }
 
@@ -981,7 +1175,9 @@ footer strong {
 
     .payment-row {
         align-items: flex-start;
+
         flex-direction: column;
+
         gap: 3px;
     }
 
@@ -992,6 +1188,7 @@ footer strong {
     .whatsapp-float {
         width: 52px;
         height: 52px;
+
         right: 15px;
         bottom: 15px;
     }
