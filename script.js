@@ -1,613 +1,816 @@
 /* =========================================================
    ELVIS_COSTELO DIGITAL SERVICES
-   SERVICE REQUEST + PAYMENT SYSTEM
-========================================================= */
+   COMPLETE WEBSITE JAVASCRIPT
+   Payment flow:
+   - Fixed-price services → Payment popup
+   - Variable/negotiable services → WhatsApp directly
+   ========================================================= */
 
-const whatsappNumber = "254795873094";
+document.addEventListener("DOMContentLoaded", () => {
 
+    /* =========================
+       BASIC SETTINGS
+    ========================= */
 
-/* =========================================================
-   SERVICE PRICES
-========================================================= */
+    const whatsappNumber = "254795873094";
+    const pochiNumber = "0142453589";
 
-const servicePrices = {
+    /* =========================
+       SERVICE PRICES
+    ========================= */
 
-    "KRA Services": "KSh 250",
-    "E-Citizen Services": "FEE TO BE CONFIRMED",
-    "Good Conduct Certificate Assistance": "KSh 250",
-    "CRB Clearance & Services": "KSh 300",
-    "EACC Clearance": "KSh 300",
-    "Company Registration": "KSh 20,000",
-    "NSSF & SHIF E-Slip": "KSh 300",
-    "TSC Number Application": "KSh 1,000",
-    "TSC Wealth Declaration & Related Services": "KSh 300",
-    "HELB Loan Application": "KSh 1,000",
-    "HELB Compliance Certificate": "KSh 300",
-    "ALL NTSA Services": "KSh 300",
-    "Driving Licence Services": "KSh 300",
-    "Passport Application Assistance": "KSh 1,000",
-    "Temporary Passport Application": "KSh 300",
-    "Migration Services": "FEE TO BE CONFIRMED",
-    "Website Design": "NEGOTIABLE",
-    "Web Designing": "NEGOTIABLE",
-    "Poster Design": "NEGOTIABLE",
-    "Business Cards": "NEGOTIABLE",
-    "Tags & Branding Materials": "NEGOTIABLE",
-    "CV Writing": "KSh 300",
-    "Abroad Jobs Agency Linking": "NEGOTIABLE",
-    "Application Assistance": "NEGOTIABLE"
-};
-
-
-/* =========================================================
-   GET SERVICE PRICE
-========================================================= */
-
-function getServicePrice(service) {
-
-    return servicePrices[service] || "FEE TO BE CONFIRMED";
-
-}
+    const servicePrices = {
+        "KRA Services": "KSh 250",
+        "E-Citizen Services": "FEE VARIES",
+        "Good Conduct Certificate Assistance": "KSh 250",
+        "CRB Clearance & Services": "KSh 300",
+        "EACC Clearance": "KSh 300",
+        "Company Registration": "KSh 20,000",
+        "NSSF & SHIF E-Slip": "KSh 300",
+        "TSC Number Application": "KSh 1,000",
+        "TSC Wealth Declaration & Related Services": "KSh 300",
+        "HELB Loan Application": "KSh 1,000",
+        "HELB Compliance Certificate": "KSh 300",
+        "ALL NTSA Services": "KSh 300",
+        "Driving Licence Services": "KSh 300",
+        "Passport Application Assistance": "KSh 1,000",
+        "Temporary Passport Application": "KSh 300",
+        "Migration Services": "FEE VARIES",
+        "Website Design": "NEGOTIABLE",
+        "Web Designing": "NEGOTIABLE",
+        "Poster Design": "NEGOTIABLE",
+        "Business Cards": "NEGOTIABLE",
+        "Tags & Branding Materials": "NEGOTIABLE",
+        "CV Writing": "KSh 300",
+        "Abroad Jobs Agency Linking": "NEGOTIABLE",
+        "Application Assistance": "NEGOTIABLE"
+    };
 
 
-/* =========================================================
-   OPEN PAYMENT SECTION
-   ALL SERVICES COME HERE
-========================================================= */
+    /* =========================
+       NORMALIZE SERVICE NAME
+       Helps prevent small spacing/
+       capitalization mismatches
+    ========================= */
 
-function openPaymentModal(service) {
-
-    if (!service) {
-        alert("Please select a service.");
-        return;
+    function normalizeServiceName(service) {
+        return String(service || "")
+            .trim()
+            .replace(/\s+/g, " ")
+            .toLowerCase();
     }
 
-    const price = getServicePrice(service);
 
-    const paymentService =
-        document.getElementById("paymentService");
+    const normalizedPrices = {};
 
-    const paymentAmount =
-        document.getElementById("paymentAmount");
-
-    const paymentModal =
-        document.getElementById("paymentModal");
+    Object.keys(servicePrices).forEach(service => {
+        normalizedPrices[normalizeServiceName(service)] = servicePrices[service];
+    });
 
 
-    /* Make sure the payment section exists */
+    function getServicePrice(service) {
+        return normalizedPrices[normalizeServiceName(service)] || "FEE VARIES";
+    }
 
-    if (!paymentModal) {
 
-        console.error(
-            "Payment modal was not found in index.html."
+    function isVariablePrice(price) {
+        const value = String(price).toUpperCase();
+
+        return (
+            value.includes("NEGOTIABLE") ||
+            value.includes("VARIES") ||
+            value.includes("FEE TO BE CONFIRMED")
         );
-
-        alert(
-            "Payment section could not be opened. Please refresh the page."
-        );
-
-        return;
     }
 
 
-    /* Put selected service inside payment section */
+    /* =========================
+       WHATSAPP
+    ========================= */
 
-    if (paymentService) {
-        paymentService.textContent = service;
+    function openWhatsApp(message) {
+        const url =
+            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+        window.open(url, "_blank");
     }
 
 
-    /* Put service price inside payment section */
+    /* =========================
+       VARIABLE / NEGOTIABLE
+       SERVICES
+    ========================= */
 
-    if (paymentAmount) {
-        paymentAmount.textContent = price;
+    function requestVariableService(service) {
+
+        const message =
+            `Hello Elvis_costelo Digital Services 👋\n\n` +
+            `I would like to inquire/request the following service:\n\n` +
+            `Service: ${service}\n` +
+            `Price: ${getServicePrice(service)}\n\n` +
+            `Please assist me with the quotation and requirements.`;
+
+        openWhatsApp(message);
     }
 
 
-    /* Open payment section */
+    /* =========================
+       PAYMENT MODAL
+       Created automatically.
+       No HTML/CSS changes required.
+    ========================= */
 
-    paymentModal.classList.add("active");
+    function createPaymentModal() {
 
-    paymentModal.setAttribute(
-        "aria-hidden",
-        "false"
-    );
+        if (document.getElementById("costeloPaymentModal")) {
+            return document.getElementById("costeloPaymentModal");
+        }
 
-    document.body.style.overflow = "hidden";
+        const modal = document.createElement("div");
 
+        modal.id = "costeloPaymentModal";
 
-    /* Scroll payment section into view */
+        modal.innerHTML = `
+            <div class="costelo-payment-overlay">
 
-    setTimeout(function() {
+                <div class="costelo-payment-box">
 
-        paymentModal.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
+                    <button
+                        type="button"
+                        class="costelo-payment-close"
+                        id="costeloPaymentClose"
+                        aria-label="Close payment popup">
+                        &times;
+                    </button>
+
+                    <div class="costelo-payment-header">
+                        <h2>Complete Your Request</h2>
+                        <p>Payment & Service Verification</p>
+                    </div>
+
+                    <div class="costelo-service-summary">
+
+                        <div>
+                            <span>Service</span>
+                            <strong id="costeloPaymentService">
+                                -
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>Amount to Pay</span>
+                            <strong id="costeloPaymentAmount">
+                                -
+                            </strong>
+                        </div>
+
+                    </div>
+
+                    <div class="costelo-pochi-box">
+
+                        <div class="costelo-pochi-title">
+                            PAY VIA M-PESA
+                        </div>
+
+                        <div class="costelo-pochi-label">
+                            Pochi la Biashara
+                        </div>
+
+                        <div class="costelo-pochi-number">
+                            ${pochiNumber}
+                        </div>
+
+                        <p>
+                            Pay the amount above using your own phone.
+                            After completing the payment, return here and
+                            enter your details below.
+                        </p>
+
+                    </div>
+
+                    <form id="costeloPaymentForm">
+
+                        <label for="costeloClientName">
+                            Full Names
+                        </label>
+
+                        <input
+                            type="text"
+                            id="costeloClientName"
+                            name="clientName"
+                            placeholder="Enter your full names"
+                            autocomplete="name"
+                            required
+                        >
+
+                        <label for="costeloClientWhatsApp">
+                            WhatsApp Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="costeloClientWhatsApp"
+                            name="clientWhatsApp"
+                            placeholder="e.g. 0712345678"
+                            autocomplete="tel"
+                            required
+                        >
+
+                        <label for="costeloTransactionCode">
+                            M-PESA Transaction Code
+                        </label>
+
+                        <input
+                            type="text"
+                            id="costeloTransactionCode"
+                            name="transactionCode"
+                            placeholder="Enter M-PESA transaction code"
+                            autocomplete="off"
+                            required
+                        >
+
+                        <button
+                            type="submit"
+                            class="costelo-payment-submit">
+                            Submit Payment Details
+                        </button>
+
+                    </form>
+
+                    <p class="costelo-payment-note">
+                        After submission, your payment details will be sent
+                        to Elvis_costelo Digital Services for verification.
+                    </p>
+
+                </div>
+
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        /* =========================
+           MODAL INTERNAL STYLING
+           Only for the dynamically
+           created payment popup.
+           Existing website CSS is untouched.
+        ========================= */
+
+        const style = document.createElement("style");
+
+        style.id = "costeloPaymentStyles";
+
+        style.textContent = `
+
+            #costeloPaymentModal {
+                display: none;
+                position: fixed;
+                inset: 0;
+                z-index: 99999;
+            }
+
+            #costeloPaymentModal.active {
+                display: block;
+            }
+
+            .costelo-payment-overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.88);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+                overflow-y: auto;
+            }
+
+            .costelo-payment-box {
+                position: relative;
+                width: min(520px, 100%);
+                max-height: 94vh;
+                overflow-y: auto;
+                background: #ffffff;
+                color: #111111;
+                border: 2px solid #d4af37;
+                border-radius: 18px;
+                padding: 28px;
+                box-shadow:
+                    0 0 25px rgba(212, 175, 55, 0.35),
+                    0 20px 70px rgba(0, 0, 0, 0.65);
+            }
+
+            .costelo-payment-close {
+                position: absolute;
+                top: 12px;
+                right: 15px;
+                width: 38px;
+                height: 38px;
+                border: none;
+                border-radius: 50%;
+                background: #111111;
+                color: #d4af37;
+                font-size: 27px;
+                line-height: 1;
+                cursor: pointer;
+            }
+
+            .costelo-payment-header {
+                text-align: center;
+                margin-bottom: 20px;
+                padding-right: 25px;
+            }
+
+            .costelo-payment-header h2 {
+                margin: 0;
+                color: #111111;
+                font-size: 24px;
+            }
+
+            .costelo-payment-header p {
+                margin: 6px 0 0;
+                color: #777777;
+                font-size: 14px;
+            }
+
+            .costelo-service-summary {
+                display: grid;
+                gap: 10px;
+                margin-bottom: 18px;
+            }
+
+            .costelo-service-summary > div {
+                background: #f7f7f7;
+                border: 1px solid #d4af37;
+                border-radius: 10px;
+                padding: 12px 14px;
+            }
+
+            .costelo-service-summary span {
+                display: block;
+                font-size: 12px;
+                color: #777777;
+                margin-bottom: 4px;
+            }
+
+            .costelo-service-summary strong {
+                display: block;
+                font-size: 16px;
+                color: #111111;
+            }
+
+            .costelo-pochi-box {
+                background: #111111;
+                color: #ffffff;
+                border: 1px solid #d4af37;
+                border-radius: 12px;
+                padding: 18px;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .costelo-pochi-title {
+                color: #d4af37;
+                font-weight: 700;
+                font-size: 13px;
+                letter-spacing: 1px;
+                margin-bottom: 8px;
+            }
+
+            .costelo-pochi-label {
+                font-size: 14px;
+                color: #dddddd;
+            }
+
+            .costelo-pochi-number {
+                font-size: 28px;
+                font-weight: 800;
+                color: #d4af37;
+                margin: 7px 0;
+                letter-spacing: 1px;
+            }
+
+            .costelo-pochi-box p {
+                margin: 8px 0 0;
+                color: #dddddd;
+                font-size: 13px;
+                line-height: 1.5;
+            }
+
+            #costeloPaymentForm label {
+                display: block;
+                font-weight: 700;
+                font-size: 14px;
+                margin: 12px 0 6px;
+                color: #222222;
+            }
+
+            #costeloPaymentForm input {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 13px 14px;
+                border: 1px solid #cccccc;
+                border-radius: 9px;
+                background: #ffffff;
+                color: #111111;
+                font-size: 15px;
+                outline: none;
+            }
+
+            #costeloPaymentForm input:focus {
+                border-color: #d4af37;
+                box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.15);
+            }
+
+            .costelo-payment-submit {
+                width: 100%;
+                margin-top: 20px;
+                padding: 14px 18px;
+                border: 1px solid #d4af37;
+                border-radius: 10px;
+                background: #111111;
+                color: #d4af37;
+                font-weight: 800;
+                font-size: 15px;
+                cursor: pointer;
+                transition: 0.2s ease;
+            }
+
+            .costelo-payment-submit:hover {
+                background: #d4af37;
+                color: #111111;
+            }
+
+            .costelo-payment-note {
+                text-align: center;
+                color: #777777;
+                font-size: 12px;
+                line-height: 1.5;
+                margin: 14px 0 0;
+            }
+
+            @media (max-width: 500px) {
+
+                .costelo-payment-box {
+                    padding: 22px 17px;
+                    border-radius: 15px;
+                }
+
+                .costelo-pochi-number {
+                    font-size: 23px;
+                }
+
+            }
+
+        `;
+
+        document.head.appendChild(style);
+
+        /* Close button */
+        document
+            .getElementById("costeloPaymentClose")
+            .addEventListener("click", closePaymentModal);
+
+        /* Click outside popup */
+        modal.addEventListener("click", event => {
+            if (event.target === modal) {
+                closePaymentModal();
+            }
         });
 
-    }, 100);
+        /* Form submission */
+        document
+            .getElementById("costeloPaymentForm")
+            .addEventListener("submit", submitPaymentDetails);
 
-}
-
-
-/* =========================================================
-   CLOSE PAYMENT SECTION
-========================================================= */
-
-function closePaymentModal() {
-
-    const paymentModal =
-        document.getElementById("paymentModal");
-
-
-    if (!paymentModal) return;
-
-
-    paymentModal.classList.remove("active");
-
-    paymentModal.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-    document.body.style.overflow = "";
-
-}
-
-
-/* =========================================================
-   SUBMIT PAYMENT DETAILS
-========================================================= */
-
-function submitPayment() {
-
-    const nameElement =
-        document.getElementById("paymentName");
-
-    const whatsappElement =
-        document.getElementById("paymentWhatsApp");
-
-    const transactionElement =
-        document.getElementById("transactionCode");
-
-    const serviceElement =
-        document.getElementById("paymentService");
-
-    const amountElement =
-        document.getElementById("paymentAmount");
-
-
-    /* Check payment fields exist */
-
-    if (
-        !nameElement ||
-        !whatsappElement ||
-        !transactionElement ||
-        !serviceElement ||
-        !amountElement
-    ) {
-
-        alert(
-            "Payment form could not be loaded correctly. Please refresh the page."
-        );
-
-        return;
+        return modal;
     }
 
 
-    const name =
-        nameElement.value.trim();
+    /* =========================
+       OPEN PAYMENT POPUP
+    ========================= */
 
-    const customerWhatsApp =
-        whatsappElement.value.trim();
+    function openPaymentModal(service) {
 
-    const transactionCode =
-        transactionElement.value.trim().toUpperCase();
+        const price = getServicePrice(service);
 
-    const service =
-        serviceElement.textContent.trim();
+        const modal = createPaymentModal();
 
-    const amount =
-        amountElement.textContent.trim();
+        document.getElementById("costeloPaymentService").textContent =
+            service;
 
+        document.getElementById("costeloPaymentAmount").textContent =
+            price;
 
-    /* =====================================================
-       NAME VALIDATION
-    ===================================================== */
+        document.getElementById("costeloClientName").value = "";
+        document.getElementById("costeloClientWhatsApp").value = "";
+        document.getElementById("costeloTransactionCode").value = "";
 
-    if (!name) {
+        modal.classList.add("active");
 
-        alert(
-            "Please enter your full name."
-        );
+        document.body.style.overflow = "hidden";
 
-        nameElement.focus();
-
-        return;
+        setTimeout(() => {
+            document.getElementById("costeloClientName").focus();
+        }, 100);
     }
 
 
-    /* =====================================================
-       WHATSAPP VALIDATION
-    ===================================================== */
+    /* =========================
+       CLOSE PAYMENT POPUP
+    ========================= */
 
-    const phonePattern =
-        /^(?:0[17]\d{8}|254[17]\d{8}|\+254[17]\d{8})$/;
+    function closePaymentModal() {
 
+        const modal = document.getElementById("costeloPaymentModal");
 
-    if (!phonePattern.test(customerWhatsApp)) {
+        if (modal) {
+            modal.classList.remove("active");
+        }
 
-        alert(
-            "Please enter a valid Kenyan WhatsApp number."
-        );
-
-        whatsappElement.focus();
-
-        return;
+        document.body.style.overflow = "";
     }
 
 
-    /* =====================================================
-       M-PESA TRANSACTION CODE VALIDATION
-    ===================================================== */
+    /* =========================
+       SUBMIT PAYMENT DETAILS
+    ========================= */
 
-    const transactionPattern =
-        /^[A-Z0-9]{8,15}$/;
+    function submitPaymentDetails(event) {
 
+        event.preventDefault();
 
-    if (!transactionPattern.test(transactionCode)) {
+        const service =
+            document.getElementById("costeloPaymentService").textContent.trim();
 
-        alert(
-            "Please enter a valid M-PESA transaction code."
-        );
+        const amount =
+            document.getElementById("costeloPaymentAmount").textContent.trim();
 
-        transactionElement.focus();
+        const fullName =
+            document.getElementById("costeloClientName").value.trim();
 
-        return;
-    }
+        const whatsapp =
+            document.getElementById("costeloClientWhatsApp").value.trim();
 
-
-    /* =====================================================
-       CREATE PAYMENT MESSAGE
-    ===================================================== */
-
-    const message =
-`NEW PAYMENT DETAILS
-
-Customer Name: ${name}
-
-Customer WhatsApp: ${customerWhatsApp}
-
-Service Requested: ${service}
-
-Service Fee: ${amount}
-
-M-PESA Transaction Code: ${transactionCode}
-
-Payment Method: Pochi la Biashara
-
-Please verify the payment before processing the customer's service.`;
+        const transactionCode =
+            document.getElementById("costeloTransactionCode").value.trim();
 
 
-    /* =====================================================
-       SEND PAYMENT DETAILS TO ELVIS
-    ===================================================== */
+        /* =========================
+           VALIDATION
+        ========================= */
 
-    window.open(
-        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
-        "_blank"
-    );
+        if (!fullName) {
+            alert("Please enter your full names.");
+            return;
+        }
 
 
-    /* =====================================================
-       CLOSE PAYMENT SECTION
-    ===================================================== */
+        if (!whatsapp) {
+            alert("Please enter your WhatsApp number.");
+            return;
+        }
 
-    setTimeout(function() {
+
+        const phoneDigits = whatsapp.replace(/\D/g, "");
+
+        if (phoneDigits.length < 9 || phoneDigits.length > 12) {
+            alert("Please enter a valid WhatsApp number.");
+            return;
+        }
+
+
+        if (!transactionCode) {
+            alert("Please enter your M-PESA transaction code.");
+            return;
+        }
+
+
+        if (transactionCode.length < 8) {
+            alert("Please enter the correct M-PESA transaction code.");
+            return;
+        }
+
+
+        /* =========================
+           SEND DETAILS TO ELVIS
+        ========================= */
+
+        const message =
+            `PAYMENT VERIFICATION REQUEST\n\n` +
+            `Service: ${service}\n` +
+            `Amount: ${amount}\n\n` +
+            `CLIENT DETAILS\n` +
+            `Full Names: ${fullName}\n` +
+            `WhatsApp Number: ${whatsapp}\n` +
+            `M-PESA Transaction Code: ${transactionCode}\n\n` +
+            `Pochi la Biashara: ${pochiNumber}\n\n` +
+            `The client has submitted payment details for manual verification.`;
+
+        const whatsappURL =
+            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+
+        /* =========================
+           CLOSE POPUP
+        ========================= */
 
         closePaymentModal();
 
-    }, 300);
 
-}
+        /* =========================
+           OPEN ELVIS WHATSAPP
+        ========================= */
 
-
-/* =========================================================
-   SERVICE CARDS
-========================================================= */
-
-function setupServiceCards() {
-
-    const cards =
-        document.querySelectorAll(
-            ".service-card[data-service]"
-        );
+        window.open(whatsappURL, "_blank");
+    }
 
 
-    console.log(
-        "Elvis_costelo service cards detected:",
-        cards.length
-    );
+    /* =========================
+       SERVICE CARD SETUP
+    ========================= */
+
+    function setupServiceCards() {
+
+        const cards =
+            document.querySelectorAll(".service-card[data-service]");
 
 
-    cards.forEach(function(card) {
-
-        const service =
-            card.getAttribute("data-service");
-
-
-        if (!service) return;
-
-
-        /*
-         * Find the service request/inquire button.
-         *
-         * We support the existing service button and
-         * common button structures without changing HTML.
-         */
-
-        const button =
-            card.querySelector(
-                ".service-button, .service-btn, button, a"
-            );
-
-
-        if (!button) {
-
-            console.warn(
-                "No request button found for:",
-                service
-            );
-
-            return;
-        }
-
-
-        /* Prevent duplicate click listeners */
-
-        if (button.dataset.paymentListener === "true") {
-            return;
-        }
-
-
-        button.dataset.paymentListener = "true";
-
-
-        button.addEventListener(
-            "click",
-            function(event) {
-
-                event.preventDefault();
-
-                event.stopPropagation();
-
-                openPaymentModal(service);
-
-            }
-        );
-
-    });
-
-}
-
-
-/* =========================================================
-   REQUEST SERVICE FORM
-========================================================= */
-
-function setupServiceRequestForm() {
-
-    const form =
-        document.getElementById(
-            "serviceRequestForm"
-        );
-
-
-    if (!form) return;
-
-
-    form.addEventListener(
-        "submit",
-        function(event) {
-
-            event.preventDefault();
-
-
-            const nameElement =
-                document.getElementById(
-                    "requestName"
-                );
-
-            const phoneElement =
-                document.getElementById(
-                    "requestWhatsApp"
-                );
-
-            const serviceElement =
-                document.getElementById(
-                    "requestService"
-                );
-
-            const messageElement =
-                document.getElementById(
-                    "requestMessage"
-                );
-
-
-            const name =
-                nameElement ?
-                nameElement.value.trim() :
-                "";
-
-            const phone =
-                phoneElement ?
-                phoneElement.value.trim() :
-                "";
+        cards.forEach(card => {
 
             const service =
-                serviceElement ?
-                serviceElement.value :
-                "";
+                card.getAttribute("data-service")?.trim();
 
-            const additionalDetails =
-                messageElement ?
-                messageElement.value.trim() :
-                "";
+            if (!service) return;
 
 
-            if (!name || !phone || !service) {
+            /* Look for the actual request/inquire
+               button inside the service card */
 
-                alert(
-                    "Please complete all required fields."
+            const button =
+                card.querySelector(
+                    ".service-button, " +
+                    ".service-btn, " +
+                    ".request-service, " +
+                    ".request-btn, " +
+                    "button"
                 );
 
+
+            if (!button) return;
+
+
+            /* Prevent duplicate listeners */
+
+            if (button.dataset.costeloBound === "true") {
                 return;
             }
 
-
-            const whatsappMessage =
-`Hello Elvis_costelo Digital Services,
-
-I would like to request your assistance.
-
-Name: ${name}
-
-WhatsApp: ${phone}
-
-Service: ${service}
-
-Additional Details:
-${additionalDetails || "None"}`;
+            button.dataset.costeloBound = "true";
 
 
-            window.open(
-                `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
-                "_blank"
+            button.addEventListener("click", event => {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                const price = getServicePrice(service);
+
+
+                /* VARIABLE / NEGOTIABLE
+                   → DIRECT WHATSAPP */
+
+                if (isVariablePrice(price)) {
+
+                    requestVariableService(service);
+
+                    return;
+                }
+
+
+                /* FIXED PRICE
+                   → PAYMENT POPUP */
+
+                openPaymentModal(service);
+
+            });
+
+        });
+    }
+
+
+    /* =========================
+       SERVICE REQUEST FORM
+    ========================= */
+
+    function setupServiceRequestForm() {
+
+        const form =
+            document.querySelector(
+                "#serviceRequestForm, " +
+                "#requestForm, " +
+                ".service-request-form"
             );
 
+        if (!form) return;
+
+
+        if (form.dataset.costeloBound === "true") {
+            return;
         }
-    );
 
-}
-
-
-/* =========================================================
-   PAYMENT MODAL CONTROLS
-========================================================= */
-
-function setupModal() {
-
-    const paymentModal =
-        document.getElementById(
-            "paymentModal"
-        );
+        form.dataset.costeloBound = "true";
 
 
-    if (!paymentModal) return;
+        form.addEventListener("submit", event => {
+
+            event.preventDefault();
+
+            const formData = new FormData(form);
+
+            const name =
+                formData.get("name") ||
+                formData.get("fullName") ||
+                "";
+
+            const phone =
+                formData.get("phone") ||
+                formData.get("whatsapp") ||
+                "";
+
+            const service =
+                formData.get("service") ||
+                "General Service Request";
+
+            const message =
+                `Hello Elvis_costelo Digital Services 👋\n\n` +
+                `I would like to request a service.\n\n` +
+                `Name: ${name}\n` +
+                `WhatsApp: ${phone}\n` +
+                `Service: ${service}`;
+
+            openWhatsApp(message);
+        });
+    }
 
 
-    /* Close when clicking outside modal content */
+    /* =========================
+       NAVIGATION
+    ========================= */
 
-    paymentModal.addEventListener(
-        "click",
-        function(event) {
+    function setupNavigation() {
 
-            if (
-                event.target === paymentModal
-            ) {
+        const navLinks =
+            document.querySelectorAll('a[href^="#"]');
 
-                closePaymentModal();
+        navLinks.forEach(link => {
 
-            }
+            link.addEventListener("click", event => {
 
+                const targetID =
+                    link.getAttribute("href");
+
+                if (!targetID || targetID === "#") {
+                    return;
+                }
+
+                const target =
+                    document.querySelector(targetID);
+
+                if (!target) return;
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            });
+
+        });
+    }
+
+
+    /* =========================
+       ESC KEY
+    ========================= */
+
+    document.addEventListener("keydown", event => {
+
+        if (event.key === "Escape") {
+            closePaymentModal();
         }
-    );
-
-
-    /* Close using ESC */
-
-    document.addEventListener(
-        "keydown",
-        function(event) {
-
-            if (
-                event.key === "Escape"
-            ) {
-
-                closePaymentModal();
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-function setupNavigation() {
-
-    const links =
-        document.querySelectorAll(
-            ".nav-links a"
-        );
-
-
-    if (!links.length) return;
-
-
-    links.forEach(function(link) {
-
-        link.addEventListener(
-            "click",
-            function() {
-
-                links.forEach(
-                    function(item) {
-
-                        item.classList.remove(
-                            "active"
-                        );
-
-                    }
-                );
-
-
-                this.classList.add(
-                    "active"
-                );
-
-            }
-        );
 
     });
 
-}
 
+    /* =========================
+       START EVERYTHING
+    ========================= */
 
-/* =========================================================
-   START EVERYTHING
-========================================================= */
+    setupServiceCards();
+    setupServiceRequestForm();
+    setupNavigation();
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        setupServiceCards();
-
-        setupServiceRequestForm();
-
-        setupModal();
-
-        setupNavigation();
-
-
-        console.log(
-            "Elvis_costelo Digital Services loaded successfully."
-        );
-
-    }
-);
+});
