@@ -13,68 +13,46 @@ const whatsappNumber = "254795873094";
 const servicePrices = {
 
     "KRA Services": "KSh 250",
-
-    "E-Citizen Services": "FEE VARIES",
-
+    "E-Citizen Services": "FEE TO BE CONFIRMED",
     "Good Conduct Certificate Assistance": "KSh 250",
-
     "CRB Clearance & Services": "KSh 300",
-
     "EACC Clearance": "KSh 300",
-
     "Company Registration": "KSh 20,000",
-
     "NSSF & SHIF E-Slip": "KSh 300",
-
     "TSC Number Application": "KSh 1,000",
-
     "TSC Wealth Declaration & Related Services": "KSh 300",
-
     "HELB Loan Application": "KSh 1,000",
-
     "HELB Compliance Certificate": "KSh 300",
-
     "ALL NTSA Services": "KSh 300",
-
     "Driving Licence Services": "KSh 300",
-
     "Passport Application Assistance": "KSh 1,000",
-
     "Temporary Passport Application": "KSh 300",
-
-    "Migration Services": "FEE VARIES",
-
+    "Migration Services": "FEE TO BE CONFIRMED",
     "Website Design": "NEGOTIABLE",
-
     "Web Designing": "NEGOTIABLE",
-
     "Poster Design": "NEGOTIABLE",
-
     "Business Cards": "NEGOTIABLE",
-
     "Tags & Branding Materials": "NEGOTIABLE",
-
     "CV Writing": "KSh 300",
-
     "Abroad Jobs Agency Linking": "NEGOTIABLE",
-
     "Application Assistance": "NEGOTIABLE"
 };
 
 
 /* =========================================================
-   GET PRICE
+   GET SERVICE PRICE
 ========================================================= */
 
 function getServicePrice(service) {
 
-    return servicePrices[service] || "FEE VARIES";
+    return servicePrices[service] || "FEE TO BE CONFIRMED";
 
 }
 
 
 /* =========================================================
-   OPEN SERVICE REQUEST
+   OPEN PAYMENT SECTION
+   ALL SERVICES COME HERE
 ========================================================= */
 
 function openPaymentModal(service) {
@@ -86,93 +64,91 @@ function openPaymentModal(service) {
 
     const price = getServicePrice(service);
 
-
-    /* -----------------------------------------------------
-       NEGOTIABLE / VARIABLE SERVICES
-       Send directly to WhatsApp for quotation
-    ----------------------------------------------------- */
-
-    if (
-        price === "NEGOTIABLE" ||
-        price === "FEE VARIES"
-    ) {
-
-        const message =
-`Hello Elvis_costelo Digital Services,
-
-I would like to request:
-
-Service: ${service}
-
-Please provide the applicable service fee and further instructions.`;
-
-        window.open(
-            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
-            "_blank"
-        );
-
-        return;
-    }
-
-
-    /* -----------------------------------------------------
-       FIXED PRICE SERVICES
-       OPEN PAYMENT MODAL
-    ----------------------------------------------------- */
-
-    const serviceElement =
+    const paymentService =
         document.getElementById("paymentService");
 
-    const amountElement =
+    const paymentAmount =
         document.getElementById("paymentAmount");
 
-    const modal =
+    const paymentModal =
         document.getElementById("paymentModal");
 
 
-    if (!serviceElement || !amountElement || !modal) {
+    /* Make sure the payment section exists */
+
+    if (!paymentModal) {
 
         console.error(
-            "Payment modal elements are missing from index.html."
+            "Payment modal was not found in index.html."
         );
 
         alert(
-            "The payment section could not be opened. Please refresh the page and try again."
+            "Payment section could not be opened. Please refresh the page."
         );
 
         return;
     }
 
 
-    serviceElement.textContent = service;
+    /* Put selected service inside payment section */
 
-    amountElement.textContent = price;
+    if (paymentService) {
+        paymentService.textContent = service;
+    }
 
-    modal.classList.add("active");
 
-    modal.setAttribute("aria-hidden", "false");
+    /* Put service price inside payment section */
+
+    if (paymentAmount) {
+        paymentAmount.textContent = price;
+    }
+
+
+    /* Open payment section */
+
+    paymentModal.classList.add("active");
+
+    paymentModal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
 
     document.body.style.overflow = "hidden";
+
+
+    /* Scroll payment section into view */
+
+    setTimeout(function() {
+
+        paymentModal.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }, 100);
 
 }
 
 
 /* =========================================================
-   CLOSE PAYMENT MODAL
+   CLOSE PAYMENT SECTION
 ========================================================= */
 
 function closePaymentModal() {
 
-    const modal =
+    const paymentModal =
         document.getElementById("paymentModal");
 
 
-    if (!modal) return;
+    if (!paymentModal) return;
 
 
-    modal.classList.remove("active");
+    paymentModal.classList.remove("active");
 
-    modal.setAttribute("aria-hidden", "true");
+    paymentModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
 
     document.body.style.overflow = "";
 
@@ -180,7 +156,7 @@ function closePaymentModal() {
 
 
 /* =========================================================
-   SUBMIT PAYMENT
+   SUBMIT PAYMENT DETAILS
 ========================================================= */
 
 function submitPayment() {
@@ -201,6 +177,8 @@ function submitPayment() {
         document.getElementById("paymentAmount");
 
 
+    /* Check payment fields exist */
+
     if (
         !nameElement ||
         !whatsappElement ||
@@ -210,7 +188,7 @@ function submitPayment() {
     ) {
 
         alert(
-            "Payment form is incomplete. Please refresh the page and try again."
+            "Payment form could not be loaded correctly. Please refresh the page."
         );
 
         return;
@@ -227,19 +205,21 @@ function submitPayment() {
         transactionElement.value.trim().toUpperCase();
 
     const service =
-        serviceElement.textContent;
+        serviceElement.textContent.trim();
 
     const amount =
-        amountElement.textContent;
+        amountElement.textContent.trim();
 
 
-    /* -----------------------------------------------------
-       NAME
-    ----------------------------------------------------- */
+    /* =====================================================
+       NAME VALIDATION
+    ===================================================== */
 
     if (!name) {
 
-        alert("Please enter your name.");
+        alert(
+            "Please enter your full name."
+        );
 
         nameElement.focus();
 
@@ -247,9 +227,9 @@ function submitPayment() {
     }
 
 
-    /* -----------------------------------------------------
-       WHATSAPP NUMBER
-    ----------------------------------------------------- */
+    /* =====================================================
+       WHATSAPP VALIDATION
+    ===================================================== */
 
     const phonePattern =
         /^(?:0[17]\d{8}|254[17]\d{8}|\+254[17]\d{8})$/;
@@ -267,12 +247,12 @@ function submitPayment() {
     }
 
 
-    /* -----------------------------------------------------
-       M-PESA TRANSACTION CODE
-    ----------------------------------------------------- */
+    /* =====================================================
+       M-PESA TRANSACTION CODE VALIDATION
+    ===================================================== */
 
     const transactionPattern =
-        /^[A-Z0-9]{8,15}$/i;
+        /^[A-Z0-9]{8,15}$/;
 
 
     if (!transactionPattern.test(transactionCode)) {
@@ -287,9 +267,9 @@ function submitPayment() {
     }
 
 
-    /* -----------------------------------------------------
-       WHATSAPP PAYMENT MESSAGE
-    ----------------------------------------------------- */
+    /* =====================================================
+       CREATE PAYMENT MESSAGE
+    ===================================================== */
 
     const message =
 `NEW PAYMENT DETAILS
@@ -298,19 +278,36 @@ Customer Name: ${name}
 
 Customer WhatsApp: ${customerWhatsApp}
 
-Service: ${service}
+Service Requested: ${service}
 
 Service Fee: ${amount}
 
 M-PESA Transaction Code: ${transactionCode}
 
-Please verify the payment in Pochi la Biashara.`;
+Payment Method: Pochi la Biashara
 
+Please verify the payment before processing the customer's service.`;
+
+
+    /* =====================================================
+       SEND PAYMENT DETAILS TO ELVIS
+    ===================================================== */
 
     window.open(
         `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
         "_blank"
     );
+
+
+    /* =====================================================
+       CLOSE PAYMENT SECTION
+    ===================================================== */
+
+    setTimeout(function() {
+
+        closePaymentModal();
+
+    }, 300);
 
 }
 
@@ -322,16 +319,18 @@ Please verify the payment in Pochi la Biashara.`;
 function setupServiceCards() {
 
     const cards =
-        document.querySelectorAll(".service-card[data-service]");
+        document.querySelectorAll(
+            ".service-card[data-service]"
+        );
 
 
     console.log(
-        "Elvis_costelo: Service cards found:",
+        "Elvis_costelo service cards detected:",
         cards.length
     );
 
 
-    cards.forEach(card => {
+    cards.forEach(function(card) {
 
         const service =
             card.getAttribute("data-service");
@@ -340,22 +339,43 @@ function setupServiceCards() {
         if (!service) return;
 
 
-        /* -------------------------------------------------
-           FIND THE REQUEST BUTTON
-
-           Supports different button classes so the
-           functionality doesn't break because of naming.
-        ------------------------------------------------- */
+        /*
+         * Find the service request/inquire button.
+         *
+         * We support the existing service button and
+         * common button structures without changing HTML.
+         */
 
         const button =
             card.querySelector(
-                ".service-button, .service-btn, .request-service, .request-btn, button, a"
+                ".service-button, .service-btn, button, a"
             );
 
 
-        if (button) {
+        if (!button) {
 
-            button.addEventListener("click", function(event) {
+            console.warn(
+                "No request button found for:",
+                service
+            );
+
+            return;
+        }
+
+
+        /* Prevent duplicate click listeners */
+
+        if (button.dataset.paymentListener === "true") {
+            return;
+        }
+
+
+        button.dataset.paymentListener = "true";
+
+
+        button.addEventListener(
+            "click",
+            function(event) {
 
                 event.preventDefault();
 
@@ -363,34 +383,8 @@ function setupServiceCards() {
 
                 openPaymentModal(service);
 
-            });
-
-        }
-
-
-        /* -------------------------------------------------
-           FALLBACK
-
-           If the card itself is clickable and there is
-           no request button, allow the card to open it.
-        ------------------------------------------------- */
-
-        if (!button) {
-
-            card.addEventListener("click", function(event) {
-
-                if (
-                    event.target.closest("a") ||
-                    event.target.closest("button")
-                ) {
-                    return;
-                }
-
-                openPaymentModal(service);
-
-            });
-
-        }
+            }
+        );
 
     });
 
@@ -404,41 +398,74 @@ function setupServiceCards() {
 function setupServiceRequestForm() {
 
     const form =
-        document.getElementById("serviceRequestForm");
+        document.getElementById(
+            "serviceRequestForm"
+        );
 
 
     if (!form) return;
 
 
-    form.addEventListener("submit", function(event) {
+    form.addEventListener(
+        "submit",
+        function(event) {
 
-        event.preventDefault();
-
-
-        const name =
-            document.getElementById("requestName")?.value.trim();
-
-        const phone =
-            document.getElementById("requestWhatsApp")?.value.trim();
-
-        const service =
-            document.getElementById("requestService")?.value;
-
-        const message =
-            document.getElementById("requestMessage")?.value.trim();
+            event.preventDefault();
 
 
-        if (!name || !phone || !service) {
+            const nameElement =
+                document.getElementById(
+                    "requestName"
+                );
 
-            alert(
-                "Please complete all required fields."
-            );
+            const phoneElement =
+                document.getElementById(
+                    "requestWhatsApp"
+                );
 
-            return;
-        }
+            const serviceElement =
+                document.getElementById(
+                    "requestService"
+                );
+
+            const messageElement =
+                document.getElementById(
+                    "requestMessage"
+                );
 
 
-        const whatsappMessage =
+            const name =
+                nameElement ?
+                nameElement.value.trim() :
+                "";
+
+            const phone =
+                phoneElement ?
+                phoneElement.value.trim() :
+                "";
+
+            const service =
+                serviceElement ?
+                serviceElement.value :
+                "";
+
+            const additionalDetails =
+                messageElement ?
+                messageElement.value.trim() :
+                "";
+
+
+            if (!name || !phone || !service) {
+
+                alert(
+                    "Please complete all required fields."
+                );
+
+                return;
+            }
+
+
+            const whatsappMessage =
 `Hello Elvis_costelo Digital Services,
 
 I would like to request your assistance.
@@ -450,56 +477,69 @@ WhatsApp: ${phone}
 Service: ${service}
 
 Additional Details:
-${message || "None"}`;
+${additionalDetails || "None"}`;
 
 
-        window.open(
-            `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
-            "_blank"
-        );
+            window.open(
+                `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
+                "_blank"
+            );
 
-    });
+        }
+    );
 
 }
 
 
 /* =========================================================
-   MODAL
+   PAYMENT MODAL CONTROLS
 ========================================================= */
 
 function setupModal() {
 
-    const modal =
-        document.getElementById("paymentModal");
+    const paymentModal =
+        document.getElementById(
+            "paymentModal"
+        );
 
 
-    if (!modal) return;
+    if (!paymentModal) return;
 
 
-    /* Close when clicking outside the modal box */
+    /* Close when clicking outside modal content */
 
-    modal.addEventListener("click", function(event) {
+    paymentModal.addEventListener(
+        "click",
+        function(event) {
 
-        if (event.target === modal) {
+            if (
+                event.target === paymentModal
+            ) {
 
-            closePaymentModal();
+                closePaymentModal();
 
-        }
-
-    });
-
-
-    /* Close with ESC key */
-
-    document.addEventListener("keydown", function(event) {
-
-        if (event.key === "Escape") {
-
-            closePaymentModal();
+            }
 
         }
+    );
 
-    });
+
+    /* Close using ESC */
+
+    document.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                closePaymentModal();
+
+            }
+
+        }
+    );
 
 }
 
@@ -511,25 +551,37 @@ function setupModal() {
 function setupNavigation() {
 
     const links =
-        document.querySelectorAll(".nav-links a");
+        document.querySelectorAll(
+            ".nav-links a"
+        );
 
 
     if (!links.length) return;
 
 
-    links.forEach(link => {
+    links.forEach(function(link) {
 
-        link.addEventListener("click", function() {
+        link.addEventListener(
+            "click",
+            function() {
 
-            links.forEach(item => {
+                links.forEach(
+                    function(item) {
 
-                item.classList.remove("active");
+                        item.classList.remove(
+                            "active"
+                        );
 
-            });
+                    }
+                );
 
-            this.classList.add("active");
 
-        });
+                this.classList.add(
+                    "active"
+                );
+
+            }
+        );
 
     });
 
@@ -540,18 +592,22 @@ function setupNavigation() {
    START EVERYTHING
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
 
-    setupServiceCards();
+        setupServiceCards();
 
-    setupServiceRequestForm();
+        setupServiceRequestForm();
 
-    setupModal();
+        setupModal();
 
-    setupNavigation();
+        setupNavigation();
 
-    console.log(
-        "Elvis_costelo Digital Services loaded successfully."
-    );
 
-});
+        console.log(
+            "Elvis_costelo Digital Services loaded successfully."
+        );
+
+    }
+);
