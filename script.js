@@ -747,3 +747,196 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
+
+/* =================================================
+   LOAD APPROVED CUSTOMER REVIEWS
+================================================== */
+
+document.addEventListener("DOMContentLoaded", async function () {
+
+    const reviewsList =
+        document.getElementById("reviewsList");
+
+    if (!reviewsList) {
+        return;
+    }
+
+
+    const supabaseURL =
+        "https://zpxaohasvkyohodwbazo.supabase.co";
+
+    const supabaseKey =
+        "sb_publishable_frGDzHBQMpHiYwlbjZZstA_FxJj-nRF";
+
+
+    try {
+
+        const response = await fetch(
+            supabaseURL +
+            "/rest/v1/reviews?approved=eq.true&order=created_at.desc",
+            {
+                method: "GET",
+
+                headers: {
+                    "apikey": supabaseKey,
+                    "Authorization":
+                        "Bearer " + supabaseKey
+                }
+            }
+        );
+
+
+        if (!response.ok) {
+
+            console.error(
+                "Could not load reviews:",
+                await response.text()
+            );
+
+            reviewsList.innerHTML =
+                '<p class="no-reviews">Reviews are currently unavailable.</p>';
+
+            return;
+
+        }
+
+
+        const reviews = await response.json();
+
+
+        /* NO APPROVED REVIEWS */
+
+        if (reviews.length === 0) {
+
+            reviewsList.innerHTML =
+                '<p class="no-reviews">No customer reviews yet. Be the first to share your experience!</p>';
+
+            return;
+
+        }
+
+
+        /* DISPLAY REVIEWS */
+
+        reviewsList.innerHTML = "";
+
+
+        reviews.forEach(function (review) {
+
+            const card =
+                document.createElement("div");
+
+            card.className = "review-card";
+
+
+            /* STARS */
+
+            const starsHTML =
+                "★".repeat(review.rating) +
+                "☆".repeat(5 - review.rating);
+
+
+            /* NAME */
+
+            const name =
+                document.createElement("div");
+
+            name.className =
+                "review-card-name";
+
+            name.textContent =
+                review.customer_name;
+
+
+            /* SERVICE */
+
+            const service =
+                document.createElement("div");
+
+            service.className =
+                "review-card-service";
+
+            service.textContent =
+                review.service;
+
+
+            /* COMMENT */
+
+            const comment =
+                document.createElement("div");
+
+            comment.className =
+                "review-card-comment";
+
+            comment.textContent =
+                review.comment;
+
+
+            /* STARS */
+
+            const stars =
+                document.createElement("div");
+
+            stars.className =
+                "review-card-stars";
+
+            stars.textContent =
+                starsHTML;
+
+
+            /* DATE */
+
+            const date =
+                document.createElement("div");
+
+            date.className =
+                "review-card-date";
+
+            const reviewDate =
+                new Date(review.created_at);
+
+            date.textContent =
+                reviewDate.toLocaleDateString(
+                    "en-KE",
+                    {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric"
+                    }
+                );
+
+
+            /* BUILD CARD */
+
+            card.appendChild(stars);
+
+            card.appendChild(name);
+
+            card.appendChild(service);
+
+            card.appendChild(comment);
+
+            card.appendChild(date);
+
+
+            reviewsList.appendChild(card);
+
+        });
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "Review loading error:",
+            error
+        );
+
+        reviewsList.innerHTML =
+            '<p class="no-reviews">Reviews are currently unavailable.</p>';
+
+    }
+
+});
