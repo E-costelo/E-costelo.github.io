@@ -1480,7 +1480,36 @@ img {
     padding: 25px;
     border-radius: 12px;
     background: #ffffff;
+    color: #111111;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.review-card-stars {
+    color: #d4af37;
+}
+
+.review-card-name {
+    color: #111111;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.review-card-service {
+    color: #555555;
+    font-size: 14px;
+    margin-bottom: 15px;
+    opacity: 1;
+}
+
+.review-card-comment {
+    color: #222222;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.review-card-date {
+    color: #777777;
+    font-size: 12px;
 }
 
 .review-card-stars {
