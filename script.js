@@ -517,3 +517,102 @@ document.addEventListener(
 
     }
 );
+/* =================================================
+   CUSTOMER REVIEWS
+================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const stars = document.querySelectorAll(".star");
+    const ratingInput = document.getElementById("reviewRating");
+    const reviewForm = document.getElementById("customerReviewForm");
+
+    let selectedRating = 0;
+
+
+    /* STAR RATING */
+
+    stars.forEach(function (star) {
+
+        star.addEventListener("click", function () {
+
+            selectedRating = Number(this.dataset.rating);
+
+            ratingInput.value = selectedRating;
+
+            stars.forEach(function (item) {
+
+                const itemRating = Number(item.dataset.rating);
+
+                if (itemRating <= selectedRating) {
+                    item.classList.add("active");
+                } else {
+                    item.classList.remove("active");
+                }
+
+            });
+
+        });
+
+    });
+
+
+    /* REVIEW SUBMISSION */
+
+    if (reviewForm) {
+
+        reviewForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+
+            const name =
+                document.getElementById("reviewName").value.trim();
+
+            const service =
+                document.getElementById("reviewService").value;
+
+            const comment =
+                document.getElementById("reviewComment").value.trim();
+
+
+            /* CHECK RATING */
+
+            if (selectedRating === 0) {
+
+                alert("Please select a star rating before submitting your review.");
+
+                return;
+
+            }
+
+
+            /* YOUR WHATSAPP NUMBER */
+
+            const whatsappNumber = "254795873094";
+
+
+            /* CREATE WHATSAPP MESSAGE */
+
+            const message =
+                "⭐ CUSTOMER REVIEW%0A%0A" +
+                "Name: " + encodeURIComponent(name) + "%0A" +
+                "Service: " + encodeURIComponent(service) + "%0A" +
+                "Rating: " + selectedRating + "/5 ⭐%0A" +
+                "Review: " + encodeURIComponent(comment);
+
+
+            /* OPEN WHATSAPP */
+
+            const whatsappURL =
+                "https://wa.me/" + whatsappNumber +
+                "?text=" + message;
+
+
+            window.open(whatsappURL, "_blank");
+
+        });
+
+    }
+
+});
