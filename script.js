@@ -557,24 +557,156 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+
     /* REVIEW SUBMISSION */
 
-    if (reviewForm) {
+if (reviewForm) {
 
-        reviewForm.addEventListener("submit", function (event) {
+    reviewForm.addEventListener("submit", async function (event) {
 
-            event.preventDefault();
+        event.preventDefault();
 
 
-            const name =
-                document.getElementById("reviewName").value.trim();
+        const name =
+            document.getElementById("reviewName").value.trim();
 
-            const service =
-                document.getElementById("reviewService").value;
+        const service =
+            document.getElementById("reviewService").value;
 
-            const comment =
-                document.getElementById("reviewComment").value.trim();
+        const comment =
+            document.getElementById("reviewComment").value.trim();
 
+
+        /* CHECK RATING */
+
+        if (selectedRating === 0) {
+
+            alert("Please select a star rating before submitting your review.");
+
+            return;
+
+        }
+
+
+        /* SUPABASE CONNECTION */
+
+        const supabaseURL =
+            "https://zpxaohasvkyohodwbazo.supabase.co";
+
+        const supabaseKey =
+            "sb_publishable_frGDzHBQMpHiYwlbjZZstA_FxJj-nRF";
+
+
+        /* SAVE REVIEW TO SUPABASE */
+
+        try {
+
+            const response = await fetch(
+                supabaseURL + "/rest/v1/reviews",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json",
+                        "apikey": supabaseKey,
+                        "Authorization": "Bearer " + supabaseKey,
+                        "Prefer": "return=minimal"
+                    },
+
+                    body: JSON.stringify({
+                        customer_name: name,
+                        service: service,
+                        rating: selectedRating,
+                        comment: comment,
+                        approved: false
+                    })
+                }
+            );
+
+
+            /* CHECK DATABASE RESPONSE */
+
+            if (!response.ok) {
+
+                const errorText = await response.text();
+
+                console.error(
+                    "Supabase review error:",
+                    errorText
+                );
+
+                alert(
+                    "We could not save your review. Please try again."
+                );
+
+                return;
+
+            }
+
+
+            /* YOUR WHATSAPP NUMBER */
+
+            const whatsappNumber = "254795873094";
+
+
+            /* CREATE WHATSAPP MESSAGE */
+
+            const message =
+                "⭐ CUSTOMER REVIEW%0A%0A" +
+                "Name: " + encodeURIComponent(name) + "%0A" +
+                "Service: " + encodeURIComponent(service) + "%0A" +
+                "Rating: " + selectedRating + "/5 ⭐%0A" +
+                "Review: " + encodeURIComponent(comment);
+
+
+            /* OPEN WHATSAPP */
+
+            const whatsappURL =
+                "https://wa.me/" + whatsappNumber +
+                "?text=" + message;
+
+
+            window.open(whatsappURL, "_blank");
+
+
+            /* SUCCESS MESSAGE */
+
+            alert(
+                "Thank you for your review! Your feedback has been submitted successfully."
+            );
+
+
+            /* RESET FORM */
+
+            reviewForm.reset();
+
+            selectedRating = 0;
+
+            ratingInput.value = "";
+
+            stars.forEach(function (item) {
+
+                item.classList.remove("active");
+
+            });
+
+
+        } catch (error) {
+
+            console.error(
+                "Review submission error:",
+                error
+            );
+
+            alert(
+                "Something went wrong while submitting your review. Please try again."
+            );
+
+        }
+
+    });
+
+}
 
             /* CHECK RATING */
 
