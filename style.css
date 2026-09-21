@@ -1444,3 +1444,89 @@ img {
     }
 
 }
+
+
+/* =================================================
+   APPROVED CUSTOMER REVIEWS
+================================================== */
+
+.approved-reviews {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.approved-reviews-heading {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.approved-reviews-heading h3 {
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.approved-reviews-heading p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+.reviews-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.review-card {
+    padding: 25px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.review-card-stars {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.review-card-name {
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.review-card-service {
+    font-size: 14px;
+    margin-bottom: 15px;
+    opacity: 0.7;
+}
+
+.review-card-comment {
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.review-card-date {
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.reviews-loading,
+.no-reviews {
+    text-align: center;
+    padding: 20px;
+    opacity: 0.7;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .reviews-list {
+        grid-template-columns: 1fr;
+    }
+
+    .review-card {
+        padding: 20px;
+    }
+
+}
