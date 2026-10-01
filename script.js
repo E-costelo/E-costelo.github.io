@@ -60,7 +60,7 @@ function openPaymentModal(serviceName) {
     ) {
 
         const message =
-            "Hello Elvis_costelo Digital Services 👋\n\n" +
+            "Hello Elvis Costelo Digital Services 👋\n\n" +
             "I would like to inquire about the following service:\n\n" +
             "Service: " + serviceName + "\n" +
             "Fee: " + price + "\n\n" +
